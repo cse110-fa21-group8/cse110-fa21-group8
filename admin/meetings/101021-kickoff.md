@@ -44,8 +44,8 @@ Jim     | java? Versatile FE/BE, wants to try a little bit of everything [little
 </pre>
 
 ### Decisions: 
-- **Backup team lead:** Amjad (Zach is on the waitlist. Joanne, Amjad, Brooks all volunteered to be backup lead and the decision was made after speeches via anonymous poll)
-- **Video:** Made separately and compiled (less ideal to get everyone together in person for video)
+- **Backup team lead:** Amjad //Zach is on the waitlist. Joanne, Amjad, Brooks all volunteered to be backup lead and the decision was made after speeches via anonymous poll
+- **Video:** Made separately and compiled //less ideal to get everyone together in person for video
 - **Branding:** Software Devils (icon: devil ice bear with 8 glasses) //voted on discord
 - **General role division:** \
 *Leaders:* Ryan Zach (Amjad if Zach doesn’t make it off waitlist)\
