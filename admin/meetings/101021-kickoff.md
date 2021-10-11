@@ -15,13 +15,18 @@
 - [ X] Jim
 
 ### Agenda:
+Old Business 
+  N/A
+New Business
 - Assign Roles
 - Finalize branding
 - Make sure everyone has access to repo (group page)
 - Discuss rules and the *Team Working Agreement* (expectations/what happens if broken)
 - Discuss Team Page contents/video
-
-
+Future Business
+- Finalizing+signing contract
+- Finalizing tentative roles
+- 
 ### Discussion Notes:
 - **Strengths/interests:**
 <pre>
@@ -48,9 +53,3 @@ Jim     | java? Versatile FE/BE, wants to try a little bit of everything [little
 <ins>UI/UX:</ins> Ryan Joanne Em Jonny \
 <ins>Testing:</ins> Terry Adithya Jim Programming \
 <ins>Backend/JS:</ins> Zach Amjad Brooks
-
-
-
-### Next Meeting TBC:
-- Finalizing+signing contract
-- Finalizing tentative roles
