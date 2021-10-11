@@ -22,7 +22,7 @@
 - Discuss Team Page contents/video
 
 ### Discussed:
-- Roles 
+- Roles\ 
 **Strengths/interests:**\
 Ryan- designing, hardware, programming (dabbled in JS) [little]\
 Zach- raw programming, development (has done game dev) [a lot of exp jquery/react]\
@@ -35,7 +35,7 @@ Brooks- backend + has done ML/algo, no exp js/html. (open to fill) [little]\
 Adithya- flask/jango. Learns languages quickly [little]\
 Jim- java? Versatile FE/BE, wants to try a little bit of everything [little]\
 
-### Decisions: 
+##### Decisions: 
 -Backup team lead: Amjad (Zach is on the waitlist. Joanne, Amjad, Brooks all volunteered to be backup lead and the decision was made after speeches via anonymous poll)
 -Video: done separately and compiled (less ideal to get everyone together in person for video)
 -Branding: Software Devils (icon: devil ice bear with 8 glasses) //voted on discord
