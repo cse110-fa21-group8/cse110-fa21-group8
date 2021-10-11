@@ -22,6 +22,7 @@
 - Discuss Team Page contents/video
 
 ### Discussed:
+- Roles 
 Members’ strengths/interests:
 Ryan- designing, hardware, programming (dabbled in JS) [little]
 Zach- raw programming, development (has done game dev) [a lot of exp jquery/react]
