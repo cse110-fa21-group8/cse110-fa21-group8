@@ -23,17 +23,17 @@
 
 ### Discussed:
 - Roles 
-Members’ strengths/interests:
-Ryan- designing, hardware, programming (dabbled in JS) [little]
-Zach- raw programming, development (has done game dev) [a lot of exp jquery/react]
-Joanne- designing UX [little/med]
-Amjad- programming [med XML+Swift+little course]
-Terry- programming/testing [med html+css+js course]
-Em- little interest in design, planning, wants to try a little bit of everything [little]
-Jonny- interested in design+JS [little]
-Brooks- backend + has done ML/algo, no exp js/html. (open to fill) [little]
-Adithya- flask/jango. Learns languages quickly [little]
-Jim- java? Versatile FE/BE, wants to try a little bit of everything [little]
+Members’ strengths/interests:\
+Ryan- designing, hardware, programming (dabbled in JS) [little]\
+Zach- raw programming, development (has done game dev) [a lot of exp jquery/react]\
+Joanne- designing UX [little/med]\
+Amjad- programming [med XML+Swift+little course]\
+Terry- programming/testing [med html+css+js course]\
+Em- little interest in design, planning, wants to try a little bit of everything [little]\
+Jonny- interested in design+JS [little]\
+Brooks- backend + has done ML/algo, no exp js/html. (open to fill) [little]\
+Adithya- flask/jango. Learns languages quickly [little]\
+Jim- java? Versatile FE/BE, wants to try a little bit of everything [little]\
 
 ### Decisions: 
 -Backup team lead: Amjad (Zach is on the waitlist. Joanne, Amjad, Brooks all volunteered to be backup lead and the decision was made after speeches via anonymous poll)
