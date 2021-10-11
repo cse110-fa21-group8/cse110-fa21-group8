@@ -47,6 +47,5 @@ Testing: Terry Adithya Jim Programming \
 
 
 ### Next Meeting TBC:
-Who sets up stuff\
-Finalizing+signing contract\
-Finalizing general roles\
+- Finalizing+signing contract
+- Finalizing tentative roles
