@@ -21,9 +21,10 @@
 - Discuss rules and the *Team Working Agreement* (expectations/what happens if broken)
 - Discuss Team Page contents/video
 
-<pre>
+
 ### Discussion Notes:
 - **Strengths/interests:**\
+<pre>
 Ryan    | designing, hardware, programming (dabbled in JS) [little]\
 Zach    | raw programming, development (has done game dev) [a lot of exp jquery/react]\
 Joanne  | designing UX [little/med]\
