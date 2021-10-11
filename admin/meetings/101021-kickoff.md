@@ -50,5 +50,5 @@ Jim     | java? Versatile FE/BE, wants to try a little bit of everything [little
 - **General role division:** \
 *Leaders:* Ryan Zach (Amjad if Zach doesn’t make it off waitlist)\
 *UI/UX:* Ryan Joanne Em Jonny \
-<ins>Testing:</ins> Terry Adithya Jim Programming \
-<ins>Backend/JS:</ins> Zach Amjad Brooks
+*Testing:* Terry Adithya Jim Programming \
+*Backend/JS:* Zach Amjad Brooks
