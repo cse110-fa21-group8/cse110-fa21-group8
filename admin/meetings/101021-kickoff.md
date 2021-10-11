@@ -43,7 +43,7 @@ Jim     | java? Versatile FE/BE, wants to try a little bit of everything [little
 - Backup team lead: Amjad (Zach is on the waitlist. Joanne, Amjad, Brooks all volunteered to be backup lead and the decision was made after speeches via anonymous poll)
 - Video: done separately and compiled (less ideal to get everyone together in person for video)
 - Branding: Software Devils (icon: devil ice bear with 8 glasses) //voted on discord
-- General role division: 
+- General role division: \
 Leaders: Ryan Zach (Amjad if Zach doesn’t make it off waitlist)\
 UI/UX: Ryan Joanne Em Jonny \
 Testing: Terry Adithya Jim Programming \
