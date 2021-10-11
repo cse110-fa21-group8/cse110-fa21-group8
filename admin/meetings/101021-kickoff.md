@@ -36,6 +36,7 @@ Brooks  | backend + has done ML/algo, no exp js/html. (open to fill) [little]
 Adithya | flask/jango. Learns languages quickly [little]
 Jim     | java? Versatile FE/BE, wants to try a little bit of everything [little]
 
+**Note: [] denotes the level of experience in JS/CSS/HTML
 </pre>
 
 ### Decisions: 
