@@ -44,7 +44,7 @@ Jim     | java? Versatile FE/BE, wants to try a little bit of everything [little
 - Video: done separately and compiled (less ideal to get everyone together in person for video)
 - Branding: Software Devils (icon: devil ice bear with 8 glasses) //voted on discord
 - *General role division:* \
-_Leaders:_ Ryan Zach (Amjad if Zach doesn’t make it off waitlist)\
+<ins>Leaders:</ins> Ryan Zach (Amjad if Zach doesn’t make it off waitlist)\
 <span style="text-decoration: underline">UI/UX:</span> Ryan Joanne Em Jonny \
 <span style="text-decoration: underline">Testing:</span> Terry Adithya Jim Programming \
 <span style="text-decoration: underline">Backend/JS:</span> Zach Amjad Brooks
