@@ -15,18 +15,17 @@
 - [ X] Jim
 
 ### Agenda:
-Old Business 
-  N/A
-New Business
-- Assign Roles
-- Finalize branding
-- Make sure everyone has access to repo (group page)
-- Discuss rules and the *Team Working Agreement* (expectations/what happens if broken)
-- Discuss Team Page contents/video
-Future Business
-- Finalizing+signing contract
-- Finalizing tentative roles
-- 
+- Old Business 
+  - N/A
+- New Business
+  - Assign Roles
+  - Finalize branding
+  - Make sure everyone has access to repo (group page)
+  - Discuss rules and the *Team Working Agreement* (expectations/what happens if broken)
+  - Discuss Team Page contents/video
+- Future Business
+  - Finalizing+signing contract
+  - Finalizing tentative roles
 ### Discussion Notes:
 - **Strengths/interests:**
 <pre>
