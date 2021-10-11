@@ -22,8 +22,7 @@
 - Discuss Team Page contents/video
 
 ### Discussed:
-- Roles\
-**Strengths/interests:**
+- **Strengths/interests:**\
 Ryan- designing, hardware, programming (dabbled in JS) [little]\
 Zach- raw programming, development (has done game dev) [a lot of exp jquery/react]\
 Joanne- designing UX [little/med]\
@@ -36,18 +35,18 @@ Adithya- flask/jango. Learns languages quickly [little]\
 Jim- java? Versatile FE/BE, wants to try a little bit of everything [little]\
 
 ##### Decisions: 
--Backup team lead: Amjad (Zach is on the waitlist. Joanne, Amjad, Brooks all volunteered to be backup lead and the decision was made after speeches via anonymous poll)
--Video: done separately and compiled (less ideal to get everyone together in person for video)
--Branding: Software Devils (icon: devil ice bear with 8 glasses) //voted on discord
--General role division: 
-Leaders: Ryan Zach (Amjad if Zach doesn’t make it off waitlist)
-UI/UX: Ryan Joanne Em Jonny 
-Testing: Terry Adithya Jim Programming 
-(Backend/JS): Zach Amjad Brooks
+-Backup team lead: Amjad (Zach is on the waitlist. Joanne, Amjad, Brooks all volunteered to be backup lead and the decision was made after speeches via anonymous poll)\
+-Video: done separately and compiled (less ideal to get everyone together in person for video)\
+-Branding: Software Devils (icon: devil ice bear with 8 glasses) //voted on discord\
+-General role division: \
+Leaders: Ryan Zach (Amjad if Zach doesn’t make it off waitlist)\
+UI/UX: Ryan Joanne Em Jonny \
+Testing: Terry Adithya Jim Programming \
+(Backend/JS): Zach Amjad Brooks\
 
 
 
 ### Next Meeting TBC:
-Who sets up stuff
-Finalizing+signing contract
-Finalizing general roles
+Who sets up stuff\
+Finalizing+signing contract\
+Finalizing general roles\
