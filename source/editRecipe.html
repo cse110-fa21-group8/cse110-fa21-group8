@@ -9,87 +9,93 @@
         <script src='assets/scripts/editRecipe.js' type="module"></script>
     </head>
     <body>
-        <nav id='navbarGrid'>
-            <input type='image' id='backBtn' src='assets/images/backArrow.png'>
-            <img id='logo' src='assets/images/logo.png'>
-            <input type='image' id='confirmBtn' src='assets/images/confirm.png'>
-            <input type='image' id='cancelBtn' src='assets/images/cancel.png'>
-        </nav>
-        
-        <div role='textbox' contenteditable id='title'>
-            Ice cream double sundae chocolate surprise with a shot of espresso
-        </div>
-        <!-- <textarea id='title'>Ice cream double sundae chocolate surprise with a shot of espresso</textarea> -->
+        <form action='viewRecipe.html'>
+            <nav id='navbarGrid'>
+                <img id='backBtn' src='assets/images/backArrow.png'>
+                <img id='logo' src='assets/images/logo.png'>
+                <input type='image' id='confirmBtn' src='assets/images/confirm.png'>
+                <img id='cancelBtn' src='assets/images/cancel.png'>
+            </nav>
+            
+            <div role='textbox' contenteditable id='title'>
+                Ice cream double sundae chocolate surprise with a shot of espresso
+            </div>
+            <!-- <textarea id='title'>Ice cream double sundae chocolate surprise with a shot of espresso</textarea> -->
 
-        <div id='metaData'>
-            <!-- Limit input servings to 3 digits (999 people), cookTime to 4 digits (9,999 minutes), make size of input box just longer than max input length -->
-            <p><b>Servings:</b> <br><span><input type='text' id='servings' size='3' maxlength='2'></span> &nbsp;</p>
-            <p><b>Cooking Time:</b> <br><span><input type='text' id='cookTime' size='5' maxlength='4'></span> minutes &nbsp;</p>
-            <!-- <p><b>Author:</b> <br><span><input type='text' id='author' size='10'></span></p> -->
-            <p><b>Author:</b> <br><span id='author' role='textbox' contenteditable>Enter name</span></p>
-        </div>
+            <div id='metaData'>
+                <!-- Limit input servings to 3 digits (999 people), cookTime to 4 digits (9,999 minutes), make size of input box just longer than max input length -->
+                <p><b>Servings:</b> <br><span><input type='text' id='servings' size='2' maxlength='2'></span> &nbsp;</p>
+                <p><b>Cooking Time:</b> <br><span><input type='text' id='cookTime' size='4' maxlength='4'></span> minutes &nbsp;</p>
+                <!-- <p><b>Author:</b> <br><span><input type='text' id='author' size='10'></span></p> -->
+                <p><b>Author:</b> <br><input type='text' id='author' size='20' maxlength='20'></span></p>
+            </div>
 
-        <div class='tags'>
-            <p class='selected'>Breakfastfhasdfhdasfjdsa</p>
-            <p>Breakfastfhasdfhdsa</p>
-            <p>Breakfastfhasdfhdsa</p>
-            <p>Breakfastfhasdfhdsa</p>
-            <p class='selected'>Breakfastfhasdfhdsa</p>
-            <p>Breaasfjdsa</p>
-            <p>Breakfastfhasdfhdasfjdsa</p>
-            <p>Breakfastfhasdfhdasffghjfjhgfjfjdsa</p>
-            <p class='selected'>Breakfastsfjdsa</p>
-            <p>Breakfastfhasdfhdasfjdsa</p>
-            <p class='selected'>Breakfastfhasdfhdasfjdsa</p>
-            <p class='selected'>Breakfastfhasdfhdasfjdsa</p>
-            <p>Breakfastfhasdfhdsa</p>
-            <p>Breakfastfhasdfhdsa</p>
-            <p>Breakfastfhasdfhdsa</p>
-        </div>
+            <div class='tags'>
+                <p class='selected'>Breakfastfhasdfhdasfjdsa</p>
+                <p>Breakfastfhasdfhdsa</p>
+                <p>Breakfastfhasdfhdsa</p>
+                <p>Breakfastfhasdfhdsa</p>
+                <p class='selected'>Breakfastfhasdfhdsa</p>
+                <p>Breaasfjdsa</p>
+                <p>Breakfastfhasdfhdasfjdsa</p>
+                <p>Breakfastfhasdfhdasffghjfjhgfjfjdsa</p>
+                <p class='selected'>Breakfastsfjdsa</p>
+                <p>Breakfastfhasdfhdasfjdsa</p>
+                <p class='selected'>Breakfastfhasdfhdasfjdsa</p>
+                <p class='selected'>Breakfastfhasdfhdasfjdsa</p>
+                <p>Breakfastfhasdfhdsa</p>
+                <p>Breakfastfhasdfhdsa</p>
+                <p>Breakfastfhasdfhdsa</p>
+            </div>
 
-        <div id='recipeCardGrid'>
-            <article id='imageEdit'>
-                <img id='recipeImg' src='assets/images/recipeImg.jpg'>
-                <input type='file' id='uploadImg' value='UPLOAD IMAGE'>
-            </article>
+            <div id='recipeCardGrid'>
+                <article id='imageEdit'>
+                    <img id='recipeImg' src='assets/images/recipeImg.jpg'>
+                    <input type='file' id='uploadImg' value='UPLOAD IMAGE'>
+                </article>
 
-            <article id='ingredients'>
-                <h2>Ingredients</h2>
+                <article id='ingredients'>
+                    <h2>Ingredients</h2>
 
-                <div role='textbox' contenteditable id='ingredient1'>
-                    Ingredient 1
-                </div>
+                    <div role='textbox' contenteditable id='ingredient1'>
+                        Ingredient 1
+                    </div>
 
-                <div role='textbox' contenteditable id='ingredient2'>
-                    Ingredient 2
-                </div>
+                    <div role='textbox' contenteditable id='ingredient2'>
+                        Ingredient 2
+                    </div>
 
-                <div role='textbox' contenteditable id='ingredient3'>
-                    Ingredient 3
-                </div>
+                    <div role='textbox' contenteditable id='ingredient3'>
+                        Ingredient 3
+                    </div>
 
-                <div>
-                    <input type='button' id='addIngredient' value='+'>
-                </div>
-            </article>
+                    <div id='ingredientBtns'>
+                        <input type='button' id='addIngredient' value='+'>
+                        <input type='button' id='removeIngredient' value='-'>
+                    </div>
+                </article>
 
-            <article id='instructions'>
-                <h2>Instructions</h2>
+                <article id='instructions'>
+                    <h2>Instructions</h2>
 
-                <div role='textbox' contenteditable id='instruction1'>
-                    Instruction 1
-                </div>
-                <div role='textbox' contenteditable id='instruction2'>
-                    Instruction 2
-                </div>
-                <div role='textbox' contenteditable id='instruction3'>
-                    Instruction 3 truction 3 Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction Text 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3 More Text Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3
-                </div>
-                
-                <div>
-                    <input type='button' id='addInstruction' value='+'>
-                </div>
-            </article>
-        </div>
+                    <div role='textbox' contenteditable id='instruction1'>
+                        Instruction 1
+                    </div>
+                    <div role='textbox' contenteditable id='instruction2'>
+                        Instruction 2
+                    </div>
+                    <div role='textbox' contenteditable id='instruction3'>
+                        Instruction 3 truction 3 Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction Text 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3 More Text Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3Instruction 3
+                    </div>
+                    
+                    <div id='instructionBtns'>
+                        <input type='button' id='addInstruction' value='+'>
+                        <input type='button' id='removeInstruction' value='-'>
+                    </div>
+                </article>
+
+                <input type='button' id='deleteRecipeBtn' value='DELETE RECIPE'>
+            </div>
+        </form>
     </body>
 </html>
