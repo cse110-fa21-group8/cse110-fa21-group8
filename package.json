@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "babel-jest": "^27.3.1",
     "jest": "^27.3.1",
     "jest-puppeteer": "^6.0.0",
@@ -10,7 +10,9 @@
   },
   "scripts": {
     "home-page-staging-test": "jest home-page-staging.test.js",
-    "home-page-test": "jest home-page.test.js"
+    "home-page-test": "jest home-page.test.js",
+    "create-skeletons-staging-test": "jest create-skeletons-staging.test.js",
+    "create-skeletons-test": "jest create-skeletons.test.js"
   },
   "jest": {
     "preset": "jest-puppeteer",

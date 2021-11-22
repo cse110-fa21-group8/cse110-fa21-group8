@@ -1,0 +1,19 @@
+name: on-push-create-skeletons-staging
+on:
+  push:
+    branches:
+      - create-skeletons-staging
+jobs:
+  UI_test:
+    name: Test create-skeletons-staging branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install --save-dev jest babel-jest @babel/core @babel/preset-env puppeteer jest-puppeteer
+      - run: npm run create-skeletons-staging-test
+  style_test:
+    name: Check html,css,javascript coding style with prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npx prettier --check .
