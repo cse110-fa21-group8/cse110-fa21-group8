@@ -20,7 +20,7 @@ describe("Basic user flow for Website", () => {
   it("Check whether [createButton] is functioning", async () => {
     const button = await page.$("#createButton");
     await button.click();
-    await page.waitForNavigation({waitUntil: "networkidle2"});
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
   it("Input title,servings,cookTime,author on createRecipe.html", async () => {
@@ -122,6 +122,6 @@ describe("Basic user flow for Website", () => {
   it("Click the confirm button on createRecipe.html", async () => {
     const button = await page.$("#confirmBtn");
     await button.click();
-    await page.waitForNavigation({waitUntil: "networkidle2"});
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 });
