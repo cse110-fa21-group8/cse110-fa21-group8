@@ -1,3 +1,51 @@
+// title of new recipe
+const title = "Chow Mein";
+
+// servings of new recipe
+const servings = "2";
+
+// cookTime of new recipe
+const cookTime = "15";
+
+// author of new recipe
+const author = "Tianyue Zhang";
+
+// tags to be selected (from left to right)
+const selectedTags = ["Dinner", "Healthy", "Cheap!", "Intermediate"];
+
+// image location of the new recipe
+const demoImage = "./testing/src/chow-mein.jpg";
+
+// ingredients to be added (from top to bottom)
+const ingredients = [
+  "chicken breast",
+  "peanut oil",
+  "garlic",
+  "cabbage",
+  "carrot",
+  "noodles",
+  "soy sauce",
+  "water",
+];
+
+// instructions to be added (from top to bottom)
+const instructions = [
+  "Marinate Chicken",
+  "Heat oil",
+  "Add garlic and stir fry",
+  "Add chicken and stir fry",
+  "Add cabbage, carrot, and stir fry",
+  "Add noodles, sauce and water",
+  "Stir fry",
+];
+
+// will be replaced by the "auto generated recipe from back-end"
+let newRecipeID = "";
+
+// will be updated as searching result
+// depends on where the new recipe is located on the home page
+let newRecipeIndex = 0;
+
 describe("Basic user flow for Website", () => {
   // First, visit the website
   beforeAll(async () => {
@@ -14,39 +62,29 @@ describe("Basic user flow for Website", () => {
     if (logType === "error") {
       console.log(logMsg);
     }
-    expect(message.type()).not.toBe("error");
+    //expect(message.type()).not.toBe("error");
   });
 
-  it("Check whether [createButton] is functioning", async () => {
+  it("Click [createButton] on index.html", async () => {
     const button = await page.$("#createButton");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
   it("Input title,servings,cookTime,author on createRecipe.html", async () => {
-    await page.type("#title", "Ice Cream Sundae");
-    await page.type("#servings", "5");
-    await page.type("#cookTime", "45");
-    await page.type("#author", "Jonny Tran");
+    await page.type("#title", title);
+    await page.type("#servings", servings);
+    await page.type("#cookTime", cookTime);
+    await page.type("#author", author);
   });
-
-  const selectedTags = [
-    "Dessert",
-    "Healthy",
-    "Sugar Free",
-    "Vegan",
-    "Cheap!",
-    "Intermediate",
-  ];
 
   it("Select tags on createRecipe.html", async () => {
     let tagsToSelect = selectedTags;
     const tags = await page.$$(".tags > p");
-    const tagNames = [];
     for (let i = 0; i < tags.length; i++) {
       const innerText = await tags[i].getProperty("innerText");
-      tagNames[i] = innerText["_remoteObject"].value;
-      if (tagNames[i] == tagsToSelect[0]) {
+      const tagName = innerText["_remoteObject"].value;
+      if (tagName == tagsToSelect[0]) {
         tagsToSelect.shift();
         await tags[i].click();
       }
@@ -54,7 +92,7 @@ describe("Basic user flow for Website", () => {
   });
 
   it("Upload image to createRecipe.html", async () => {
-    const fileToUpload = "./testing/src/demo.jpg";
+    const fileToUpload = demoImage;
     const button = await page.$("#uploadImg");
     await button.uploadFile(fileToUpload);
     //const fileChosen = await page.$("[aria-hidden]");
@@ -75,16 +113,11 @@ describe("Basic user flow for Website", () => {
   });
 
   it("Add new ingredients on createRecipe.html", async () => {
-    const ingredients = [
-      "1 pint chocolate ice cream",
-      "1 pint vanilla ice cream",
-      "whipped cream",
-    ];
+    // Add new boxes & Type in new text in each new box
     const button = await page.$("#addIngredient");
     for (let i = 0; i < ingredients.length - 1; i++) {
       await button.click();
     }
-    // Add new box & Type in new text in the new box
     const boxes = await page.$$("#ingredients > div");
     for (let i = 0; i < ingredients.length; i++) {
       await boxes[i].type(ingredients[i]);
@@ -103,11 +136,6 @@ describe("Basic user flow for Website", () => {
   });
 
   it("Add new instructions on createRecipe.html", async () => {
-    const instructions = [
-      "Add chocolate ice cream",
-      "Add vanilla ice cream",
-      "Add whipped cream",
-    ];
     const button = await page.$("#addInstruction");
     for (let i = 0; i < instructions.length - 1; i++) {
       await button.click();
@@ -123,5 +151,135 @@ describe("Basic user flow for Website", () => {
     const button = await page.$("#confirmBtn");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Click the back button on viewRecipe.html", async () => {
+    // get ID : "#......" of the newly created recipe
+    const viewRecipeURL = await page.url();
+    let subStrBegin = 0;
+    for (let i = 0; i < viewRecipeURL.length; i++) {
+      if (viewRecipeURL[i] == "#") {
+        subStrBegin = i;
+      }
+    }
+    newRecipeID = viewRecipeURL.substring(subStrBegin);
+    // click on the back button
+    const button = await page.$("#backBtn");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("check whether the new recipe is on home page", async () => {
+    // find the index of the new recipe
+    newRecipeIndex = await page.evaluate((newRecipeID) => {
+      let recipeIndex = -1;
+      const recipes = document.querySelectorAll(".recipe");
+      for (let i = 0; i < recipes.length; i++) {
+        const href = "" + recipes[i].getAttribute("href");
+        if (href.includes(newRecipeID)) {
+          recipeIndex = i;
+          break;
+        }
+      }
+      return recipeIndex;
+    }, newRecipeID);
+    // click on the newly created recipe
+    const buttons = await page.$$(".recipe");
+    await buttons[newRecipeIndex].click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("check all information is correct on viewRecipe.html", async () => {
+    let innerText = "";
+    // check "title" is the same as expected
+    const viewTitle = await page.$("#title");
+    innerText = await viewTitle.getProperty("innerText");
+    const viewTitleText = innerText["_remoteObject"].value;
+    expect(viewTitleText).toBe(title);
+
+    // check "servings" is the same as expected
+    const viewServings = await page.$("#servings");
+    innerText = await viewServings.getProperty("innerText");
+    const viewServingsText = innerText["_remoteObject"].value;
+    expect(viewServingsText).toBe(servings);
+
+    // check "cookTime" is the same as expected
+    const viewCookTime = await page.$("#cookTime");
+    innerText = await viewCookTime.getProperty("innerText");
+    const viewCookTimeText = innerText["_remoteObject"].value;
+    expect(viewCookTimeText).toBe(cookTime);
+
+    // check "author" is the same as expected
+    const viewAuthor = await page.$("#author");
+    innerText = await viewAuthor.getProperty("innerText");
+    const viewAuthorText = innerText["_remoteObject"].value;
+    expect(viewAuthorText).toBe(author);
+
+    // TBD
+  });
+
+  it("Click the edit button on viewRecipe.html", async () => {
+    const button = await page.$("#editBtn");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Check whether editing is functioning on editRecipe.html", async () => {
+    await page.focus("#title");
+    await page.keyboard.press("End");
+    await page.type("#title", " (Updated)");
+  });
+
+  it("Click the confirm button on createRecipe.html", async () => {
+    const button = await page.$("#confirmBtn");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Click the back button on viewRecipe.html", async () => {
+    const button = await page.$("#backBtn");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("check whether the recipe is updated on home page", async () => {
+    const buttons = await page.$$(".recipe");
+    const updatedRecipe = buttons[newRecipeIndex];
+    // check whether title is updated
+    const innerText = await updatedRecipe.getProperty("innerText");
+    const updatedRecipeText = innerText["_remoteObject"].value;
+    expect(updatedRecipeText).toBe(title + " (Updated)");
+    // click on the updated recipe
+    await updatedRecipe.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Click the edit button on viewRecipe.html", async () => {
+    const button = await page.$("#editBtn");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Check whether deleting is functioning on editRecipe.html", async () => {
+    const button = await page.$("#deleteRecipeBtn");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("check whether the new recipe is deleted from home page", async () => {
+    // find the index of the deleted new recipe
+    const deletedRecipeIndex = await page.evaluate((newRecipeID) => {
+      let recipeIndex = -1;
+      const recipes = document.querySelectorAll(".recipe");
+      for (let i = 0; i < recipes.length; i++) {
+        const href = "" + recipes[i].getAttribute("href");
+        if (href.includes(newRecipeID)) {
+          recipeIndex = i;
+          break;
+        }
+      }
+      return recipeIndex;
+    }, newRecipeID);
+    expect(deletedRecipeIndex).toBe(-1);
   });
 });
