@@ -70,8 +70,8 @@ describe("Basic user flow for Website", () => {
   });
 
   it("login on landing page", async () => {
-    const buttons = await page.$$(".navigation > a");
-    await buttons[3].click(); // Login button
+    const buttons = await page.$$("#links > a");
+    await buttons[2].click(); // Login button
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
