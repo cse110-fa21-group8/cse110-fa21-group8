@@ -1,3 +1,9 @@
+// username
+const username = "autoTestingBot";
+
+// password
+const password = "abcdefgh";
+
 // title of new recipe
 const title = "Chow Mein";
 
@@ -49,9 +55,7 @@ let newRecipeIndex = 0;
 describe("Basic user flow for Website", () => {
   // First, visit the website
   beforeAll(async () => {
-    await page.goto(
-      "https://testing.tianyuezhang1997.site/cse110-fa21-group8/main/"
-    );
+    await page.goto("https://frosty-poincare-dc3f79.netlify.app/");
   });
 
   // Keep checking whether there is some "ERROR" in the console log
@@ -65,7 +69,21 @@ describe("Basic user flow for Website", () => {
     //expect(message.type()).not.toBe("error");
   });
 
-  it("Click [createButton] on index.html", async () => {
+  it("login on landing page", async () => {
+    const buttons = await page.$$(".navigation > a");
+    await buttons[3].click(); // Login button
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Input title,servings,cookTime,author on createRecipe.html", async () => {
+    await page.type("#username", username);
+    await page.type("#password", password);
+    const button = await page.$("#submit");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Click [createButton] on home page", async () => {
     const button = await page.$("#createButton");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
