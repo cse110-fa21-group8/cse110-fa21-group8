@@ -7,7 +7,7 @@
 
 body {
   background-color: var(--secondary-color);
-  font-family: 'Noto Serif', serif;
+  font-family: "Noto Serif", serif;
 }
 
 @media only screen and (min-width: 1680px) {
@@ -53,7 +53,7 @@ body {
   font-size: 12pt;
 }
 
-.recipe:hover{
+.recipe:hover {
   background-color: rgb(157, 199, 229);
   border: 3pt solid rgb(130, 185, 223);
 }
@@ -78,7 +78,6 @@ body {
   padding-left: 10px;
   padding-top: 0;
   padding-bottom: 0;
-
 }
 
 .search-button {
@@ -90,7 +89,7 @@ body {
 }
 
 .search-button:hover {
-  background-color: rgb(195, 195, 195);  
+  background-color: rgb(195, 195, 195);
 }
 
 .search-changed {
@@ -101,7 +100,6 @@ body {
   padding-left: 10px;
   padding-top: 0;
   padding-bottom: 0;
-
 }
 
 .drop-down {
@@ -168,14 +166,14 @@ body {
   padding-top: 14px;
   padding-left: 55px;
   padding-right: 55px;
-  border: 2px solid black
+  border: 2px solid black;
 }
 
-.a:hover{
+.a:hover {
   background-color: rgb(164, 208, 240);
 }
 
-.b:hover{
+.b:hover {
   background-color: rgb(164, 208, 240);
 }
 
@@ -218,26 +216,25 @@ body {
 }
 
 .tags > *:hover {
-background-color: rgb(209, 233, 241);
-border: 3px solid rgb(144, 179, 202); 
+  background-color: rgb(209, 233, 241);
+  border: 3px solid rgb(144, 179, 202);
 }
 
 .selected {
   opacity: 1;
 }
 
-div[hide = "true"], div[hide = 'true'] > *:hover{
+div[hide="true"],
+div[hide="true"] > *:hover {
   overflow-y: hidden;
-  color:rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
   cursor: not-allowed;
   background-image: url("../images/amjad.jpg");
   background-size: 400px 800px;
-
 }
 
-div[hide = 'true'] > *{
+div[hide="true"] > * {
   background-color: rgb(191, 225, 245);
   color: rgb(106, 150, 175);
   opacity: 0;
-
 }

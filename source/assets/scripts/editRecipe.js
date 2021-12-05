@@ -2,7 +2,7 @@ import {updateRecipe, getOneRecipe, deleteRecipe} from "./CRUD.js";
 // READ part of CRUD
 // hash[0]: username
 // hash[1]: recipeid
-const hash = window.location.hash.replace(/^#/, '').split("&");
+const hash = window.location.hash.replace(/^#/, "").split("&");
 const userName = hash[0];
 const _id = hash[1];
 console.log("on line4, editRecipe.js" + _id);
@@ -124,9 +124,11 @@ confirmBtn.addEventListener("click", async function () {
 let deleteBtn = document.getElementById("deleteRecipeBtn");
 deleteBtn.addEventListener("click", async function () {
   // let recipeTitle = result.title;
-  let deleted = await deleteRecipe(userName, _id, result.title).then((resolved) => {
-    return resolved;
-  });
+  let deleted = await deleteRecipe(userName, _id, result.title).then(
+    (resolved) => {
+      return resolved;
+    }
+  );
   console.log(deleted);
 
   // TODO: add below back

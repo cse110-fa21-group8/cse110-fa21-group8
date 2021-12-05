@@ -1,8 +1,8 @@
 import {getRecipe} from "./CRUD.js";
 window.addEventListener("DOMContentLoaded", init);
-const userName = window.location.hash.replace(/^#/, '');
+const userName = window.location.hash.replace(/^#/, "");
 
-let tags = document.querySelectorAll('.tags > *');
+let tags = document.querySelectorAll(".tags > *");
 tags.forEach((tag) => {
   tag.addEventListener("click", function () {
     if (tag.classList.contains("selected")) {
@@ -101,7 +101,9 @@ async function init() {
       const recipe = document.createElement("img");
       console.log(recipes[i].img);
       recipe.setAttribute("src", recipes[i].img);
-      console.log("src for recipe img at line 92 in home.js: " + recipes[i].img); 
+      console.log(
+        "src for recipe img at line 92 in home.js: " + recipes[i].img
+      );
       recipe.setAttribute("width", recipeWH);
       recipe.setAttribute("height", recipeWH);
       // recipe.style.position = "absolute";
@@ -165,13 +167,13 @@ async function init() {
     let newRecipes = [];
     for (let i = 0; i < recipeLength; i++) {
       let name =
-        recipes[i].title != undefined ? recipes[i].title.toString().toLowerCase() : "";
+        recipes[i].title != undefined
+          ? recipes[i].title.toString().toLowerCase()
+          : "";
       let tags = recipes[i].tags;
 
       // Filter by name
-      if (
-        name.includes(searchBar.value.toLowerCase())
-      )
+      if (name.includes(searchBar.value.toLowerCase()))
         newRecipes.push(recipes[i]);
 
       // Filter by tag
@@ -213,10 +215,10 @@ async function init() {
         // Check every tag on recipe to see if it matches the selected box
         names.forEach((name) => {
           selectedTags.forEach((tag) => {
-            if(name.toLowerCase().includes(tag.textContent.toLowerCase())) {
-              if(!newRecipes.includes(recipes[i])) newRecipes.push(recipes[i]);
+            if (name.toLowerCase().includes(tag.textContent.toLowerCase())) {
+              if (!newRecipes.includes(recipes[i])) newRecipes.push(recipes[i]);
             }
-          })
+          });
         });
       }
 

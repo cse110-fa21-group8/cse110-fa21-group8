@@ -9,47 +9,51 @@ let resultSection = document.getElementById("result");
 let detail = document.getElementById("detail");
 let res = [];
 
-let userName = window.location.hash.replace(/^#/, '');
+let userName = window.location.hash.replace(/^#/, "");
 let loggedIn = false;
 // if logged in
 if (userName != "") {
   loggedIn = true;
 }
 
-
-
 window.addEventListener("DOMContentLoaded", init);
 
 async function init() {
   // let Servresponse = await filter([], 50);
   await explore(false);
-  
+
   // let searchSuccess = false;
   let searchBar = document.getElementById("query");
   let searchButton = document.getElementById("search");
   searchBar.addEventListener("change", () => {
     let tags = document.querySelector(".tags");
-    tags.style.display = (searchBar.value == "") ? tags.setAttribute("hide", "false") : tags.setAttribute("hide", "true");
-  })
+    tags.style.display =
+      searchBar.value == ""
+        ? tags.setAttribute("hide", "false")
+        : tags.setAttribute("hide", "true");
+  });
 
-  searchButton.addEventListener("click", async function() {
-    if(searchBar.value == "") await explore(false);
+  searchButton.addEventListener("click", async function () {
+    if (searchBar.value == "") await explore(false);
     else await explore(true);
   });
 
-  window.addEventListener("keydown", async function(event) {
-    if(event.key == "Enter") {
-      if(searchBar.value == "") await explore(false);
+  window.addEventListener("keydown", async function (event) {
+    if (event.key == "Enter") {
+      if (searchBar.value == "") await explore(false);
       else await explore(true);
     }
   });
 
   // Explore the different recipes.
-  // queryStatus: true if searching, false if 
+  // queryStatus: true if searching, false if
   async function explore(search) {
-    if(search) {
+    if (search) {
       let response = await fetch(
-        queryLink + "/" + "recipes/complexSearch?query=" + document.getElementById("query").value,
+        queryLink +
+          "/" +
+          "recipes/complexSearch?query=" +
+          document.getElementById("query").value,
         {
           method: "GET",
           headers: {
@@ -85,8 +89,12 @@ async function init() {
 
             // Check every tag on recipe to see if it matches the selected box
             names.forEach((name) => {
-              if(selectedTags.textContent.toLowerCase().includes(name.toLowerCase())) {
-                if(!newRecipes.includes(res[i])) newRecipes.push(res[i]);
+              if (
+                selectedTags.textContent
+                  .toLowerCase()
+                  .includes(name.toLowerCase())
+              ) {
+                if (!newRecipes.includes(res[i])) newRecipes.push(res[i]);
               }
             });
           }
@@ -96,30 +104,30 @@ async function init() {
           fillGrid();
         });
       });
-
-    }
-    else {
-      let filterRes = await filter([], 50)
-                    .then(filterRes => {return filterRes});
+    } else {
+      let filterRes = await filter([], 50).then((filterRes) => {
+        return filterRes;
+      });
       res = filterRes["recipes"];
-        
+
       // When clicking tags, please filter
       var tagBoxes = document.querySelectorAll(".tags > p");
       tagBoxes.forEach((element) => {
-        element.addEventListener("click", async function() {
-            let selectedElements = document.querySelectorAll(".tags > .selected");
-            let selectedTags = []
-            console.log(selectedElements);
-            
-            selectedElements.forEach((element) => {
-              selectedTags.push(element.textContent.toLowerCase());
-            })
+        element.addEventListener("click", async function () {
+          let selectedElements = document.querySelectorAll(".tags > .selected");
+          let selectedTags = [];
+          console.log(selectedElements);
 
-            let filterRes = await filter(selectedTags, 50)
-                          .then(filterRes => {return filterRes});
-            res = filterRes["recipes"];
-            pointer = 0;
-            fillGridExplore();
+          selectedElements.forEach((element) => {
+            selectedTags.push(element.textContent.toLowerCase());
+          });
+
+          let filterRes = await filter(selectedTags, 50).then((filterRes) => {
+            return filterRes;
+          });
+          res = filterRes["recipes"];
+          pointer = 0;
+          fillGridExplore();
         });
       });
     }
@@ -154,9 +162,7 @@ async function init() {
       else {
         window.location.href = "register.html";
       }
-
     });
-
 
     async function fillGridExplore() {
       // Remove current recipes on display
@@ -169,38 +175,43 @@ async function init() {
           }
         }
       }
-  
+
       // Add new recipes to display
       let capacity = pointer;
-  
+
       for (
         let i = capacity % recipeElements.length;
         i < recipeElements.length;
         i++
       ) {
         if (pointer >= res.length) break;
-  
+
         // Create recipe element
         const recipe = document.createElement("img");
         recipe.setAttribute("src", res[pointer]["image"]);
         // recipe.setAttribute("width", recipeWH);
         // recipe.setAttribute("height", recipeWH);
-        
+
         // recipe id
         let idNum = res[pointer].id;
-  
+
         recipeElements[i].textContent = res[pointer]["title"];
         if (loggedIn) {
-          recipeElements[i].setAttribute("href", "viewRecipeExplore.html#" + userName + "&" + idNum);  
-        }
-        else {
-          recipeElements[i].setAttribute("href", "viewRecipeExplore.html#" + idNum);
+          recipeElements[i].setAttribute(
+            "href",
+            "viewRecipeExplore.html#" + userName + "&" + idNum
+          );
+        } else {
+          recipeElements[i].setAttribute(
+            "href",
+            "viewRecipeExplore.html#" + idNum
+          );
         }
         recipeElements[i].appendChild(recipe);
 
         pointer++;
       }
-  
+
       pointer = capacity + recipeElements.length;
     }
   }

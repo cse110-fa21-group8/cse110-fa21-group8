@@ -1,93 +1,92 @@
 body {
-    margin: 0 0 5mm 0;
-    background-color: antiquewhite;
-  }
-  
-  /************/
-  /** NAVBAR **/
-  /************/
-  #navbarGrid {
-    display: grid;
-    background-color: rgb(224, 248, 255);
-    grid-template-columns: 5px 60px auto 60px 60px;
-  
-    /* sticky navbar */
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    width: 100%;
-  
-    border-bottom: solid;
-    border-width: 1px;
-  }
-  
-  /* gives margin to first element after navbar so doesn't overlap */
-  #navbarGrid + * {
-    margin-top: 15%;
-  }
-  
-  #navbarGrid > * {
-    height: 50px;
-    width: 50px;
-    margin: 1mm;
-  }
-  
-  #logo {
-    grid-column: 2/3;
-    width: 200px;
-    /* margin: 0mm; */
-    /* height: 115%; */
-    overflow-y: hidden;
-  }
+  margin: 0 0 5mm 0;
+  background-color: antiquewhite;
+}
 
-  h2{
-      margin-bottom: 200px;
-  }
-  
-  /*****************/
-  /** FORM LAYOUT **/
-  /*****************/
-  form {
-    display: grid;
-    /* grid-template-rows: auto; */
-    /* width: 95%; */
-  
-    /* center form */
-    margin: 50px;
-    place-items: center;
-  }
-  
-  form > * {
-    margin: 2mm 0mm 0mm 0mm;
-  }
-  
-  form > input {
-    height: 25px;
-    width: 250px;
-    border-radius: 1mm;
-    font-size: large;
-    padding: 1mm;
-  }
-  
-  form > #submit {
-    font-size: large;
-    height: 60%;
-    width: 260px;
-    background-color: rgb(224, 248, 255);
-    cursor: pointer;
-    margin: 5mm 0mm 3mm 0mm;
-    text-align: center;
-  }
-  
-  #errorMsg {
-    color: firebrick;
-    display: none;
-    margin: 7mm 0mm;
-    text-align: center;
-  }
-  
-  form > p {
-    font-size: larger;
-    margin: 5mm 3mm;
-  }
-  
+/************/
+/** NAVBAR **/
+/************/
+#navbarGrid {
+  display: grid;
+  background-color: rgb(224, 248, 255);
+  grid-template-columns: 5px 60px auto 60px 60px;
+
+  /* sticky navbar */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+
+  border-bottom: solid;
+  border-width: 1px;
+}
+
+/* gives margin to first element after navbar so doesn't overlap */
+#navbarGrid + * {
+  margin-top: 15%;
+}
+
+#navbarGrid > * {
+  height: 50px;
+  width: 50px;
+  margin: 1mm;
+}
+
+#logo {
+  grid-column: 2/3;
+  width: 200px;
+  /* margin: 0mm; */
+  /* height: 115%; */
+  overflow-y: hidden;
+}
+
+h2 {
+  margin-bottom: 200px;
+}
+
+/*****************/
+/** FORM LAYOUT **/
+/*****************/
+form {
+  display: grid;
+  /* grid-template-rows: auto; */
+  /* width: 95%; */
+
+  /* center form */
+  margin: 50px;
+  place-items: center;
+}
+
+form > * {
+  margin: 2mm 0mm 0mm 0mm;
+}
+
+form > input {
+  height: 25px;
+  width: 250px;
+  border-radius: 1mm;
+  font-size: large;
+  padding: 1mm;
+}
+
+form > #submit {
+  font-size: large;
+  height: 60%;
+  width: 260px;
+  background-color: rgb(224, 248, 255);
+  cursor: pointer;
+  margin: 5mm 0mm 3mm 0mm;
+  text-align: center;
+}
+
+#errorMsg {
+  color: firebrick;
+  display: none;
+  margin: 7mm 0mm;
+  text-align: center;
+}
+
+form > p {
+  font-size: larger;
+  margin: 5mm 3mm;
+}
