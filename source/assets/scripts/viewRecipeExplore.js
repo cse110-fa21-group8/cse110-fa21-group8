@@ -193,6 +193,7 @@ backBtn.addEventListener("click", function () {
 
 // Add confetti
 let instructions = document.querySelectorAll("#instructions > div > input");
+// eslint-disable-next-line no-undef
 let confetti = new JSConfetti();
 instructions.forEach((element) => {
   element.addEventListener("click", () => {
