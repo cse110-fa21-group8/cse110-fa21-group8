@@ -16,12 +16,11 @@
   </head>
   <body>
     <nav id="navbarGrid">
-      <!-- <span
-        ><input
-          type="image"
-          id="backBtn"
-          src="../source/assets/images/backArrow.png"
-      /></span> -->
+      <input
+        type="image"
+        id="exploreTimer"
+        src="../source/assets/images/timer.png"
+      />
 
       <input
         type="image"
@@ -29,10 +28,45 @@
         src="../source/assets/images/backArrow.png"
       />
       <img id="logo" src="../source/assets/images/logo.png" />
-      <!-- <a href='../views/editRecipe.html'><img id='editBtn' src='../source/assets/images/pencil.png'></a> -->
-      <!-- <a ><img id='editBtn' src='../source/assets/images/pencil.png'></a> -->
       <input type="image" id="favBtn" src="../source/assets/images/add.png" />
     </nav>
+
+    <div id="timerBox" class="hide">
+      <div id="time">
+        <span id="closeBtn">&times;</span>
+        <p id="timeInput" class="show">
+          <input
+            type="number"
+            id="minutesInput"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type="number"
+            min="0"
+            max="99"
+            maxlength="2"
+            defaultValue="0"
+          />
+          :
+          <input
+            type="number"
+            id="secondsInput"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type="number"
+            min="0"
+            max="99"
+            maxlength="2"
+            defaultValue="0"
+          />
+        </p>
+        <p id="timeDisplay" class="hide">
+          <span id="minutesDisplay"></span> : <span id="secondsDisplay"></span>
+        </p>
+        <input
+          type="image"
+          id="startStopBtn"
+          src="../source/assets/images/play.png"
+        />
+      </div>
+    </div>
 
     <h1 id="title"></h1>
     <div id="metaData">
