@@ -65,14 +65,14 @@ test("authenticate-register-failed", async () => {
   );
   expect(res).toBe("user already exists");
 });
-
+/*
 test("getRecipe-succeed", async () => {
   let result = await getRecipe("autoTestingBot").then((resolved) => {
     return resolved;
   });
   expect(Array.isArray(result)).toBe(true);
 });
-
+*/
 /*
 test('the data is the message from server', () => {
     //should fail becaause user not in db
