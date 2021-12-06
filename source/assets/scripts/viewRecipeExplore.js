@@ -3,6 +3,7 @@ import {
   getOneRecipeExplore,
   addRecipe,
   saveRecipe,
+  deleteRecipe,
 } from "./CRUD.js";
 
 const hash = window.location.hash.replace(/^#/, "").split("&");
@@ -121,11 +122,11 @@ function fillInstruction(instruction, instructionCount) {
 
 // toggle favorites button
 let favBtn = document.getElementById("favBtn");
-let clicked = false;
+let recipeId;
 favBtn.addEventListener("click", async function () {
-  if (!clicked) {
-    // if logged in
-    if (loggedIn) {
+  // if logged in
+  if (loggedIn) {
+    if (favBtn.getAttribute("src") == "../source/assets/images/add.png") {
       // get the ingredients array
       let ingredientsArray = [];
       // the ingredients
@@ -150,7 +151,7 @@ favBtn.addEventListener("click", async function () {
         tagsArray.push(tagSection[i].innerHTML);
       }
       // add recipe to the database
-      let recipeId = await addRecipe(
+      recipeId = await addRecipe(
         userName,
         result.title,
         result.image,
@@ -164,13 +165,22 @@ favBtn.addEventListener("click", async function () {
         return resolved;
       });
       console.log("in line 132 in viewRecipeExplore" + recipeId);
-      favBtn.setAttribute("src", "../source/assets/images/confirm.png");
-      clicked = true;
-    }
-    // if not logged in
-    else {
-      window.location.href = "register.html";
-    }
+      favBtn.setAttribute("src", "../source/assets/images/cancel.png");
+      }
+    // unsave
+    else if (favBtn.getAttribute("src") == "../source/assets/images/cancel.png") {
+      console.log("in line 172: " + recipeId);
+      let res = await deleteRecipe(userName, recipeId, result.title)
+                        .then((resolved) => {
+                          return resolved;
+                        });
+      console.log(res);
+      favBtn.setAttribute("src", "../source/assets/images/add.png");
+      }
+  }
+  // if not logged in
+  else {
+    window.location.href = "register.html";
   }
 });
 

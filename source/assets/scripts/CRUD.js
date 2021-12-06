@@ -17,8 +17,16 @@ const serverUrl = "https://devil-dishes.herokuapp.com/";
  * user authentication
  * @param {String} username uername
  * @param {String} password password
- * @param {String} authType type of authentication, either register or login
+ * @param {String} authType type of authentication, either "register" or "login"
  * @returns {String} Message from server, you can use this to determine whether succeeded
+ *  @authType = "login"
+ *    @success {String} login successful
+ *    @fail {String} incorrect password or username
+ *  @authType = "register"
+ *    @success {String} register successful
+ *  based on situation:
+ *    @fail {String} user already exists
+ *    @fail {String} username shuold only include letters and numbers, username shold contain more than 3 characters, password should contain more than 7 characters
  */
 async function authenticate(username, password, authType) {
   // set mode automatically
@@ -42,6 +50,8 @@ async function authenticate(username, password, authType) {
  * @param {String} username username
  * @param {String} _id recipe id
  * @returns {String} Message from server, you can use this to determine whether succeeded
+ *  @success {String} updated favorite recipe
+ *  @falil {String with variable} user ${username} doesn't exist
  */
 async function saveRecipe(username, _id) {
   const response = await fetch(serverUrl + "addFavorite", {
@@ -60,6 +70,7 @@ async function saveRecipe(username, _id) {
 }
 
 // image: the image file uploaded
+// this is helper function, included in addrecipe
 async function uploadImg(image, username, title) {
   console.log("image passed into uploadImg: " + image);
   // if image is a string: return the link
