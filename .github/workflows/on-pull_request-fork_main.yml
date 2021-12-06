@@ -1,4 +1,4 @@
-name: on-pull_request-main
+name: on-pull_request-fork_main
 on:
   pull_request:
     branches:
