@@ -166,17 +166,20 @@ favBtn.addEventListener("click", async function () {
       });
       console.log("in line 132 in viewRecipeExplore" + recipeId);
       favBtn.setAttribute("src", "../source/assets/images/cancel.png");
-      }
+    }
     // unsave
-    else if (favBtn.getAttribute("src") == "../source/assets/images/cancel.png") {
+    else if (
+      favBtn.getAttribute("src") == "../source/assets/images/cancel.png"
+    ) {
       console.log("in line 172: " + recipeId);
-      let res = await deleteRecipe(userName, recipeId, result.title)
-                        .then((resolved) => {
-                          return resolved;
-                        });
+      let res = await deleteRecipe(userName, recipeId, result.title).then(
+        (resolved) => {
+          return resolved;
+        }
+      );
       console.log(res);
       favBtn.setAttribute("src", "../source/assets/images/add.png");
-      }
+    }
   }
   // if not logged in
   else {
