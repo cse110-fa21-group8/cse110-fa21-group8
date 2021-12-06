@@ -42,7 +42,9 @@ let newRecipeIndex = 0;
 describe("Basic user flow for Website", () => {
   // First, visit the website
   beforeAll(async () => {
-    await page.goto("https://testing.tianyuezhang1997.site/cse110-fa21-group8/merging");
+    await page.goto(
+      "https://testing.tianyuezhang1997.site/cse110-fa21-group8/merging"
+    );
   });
 
   // Keep checking whether there is some "ERROR" in the console log
