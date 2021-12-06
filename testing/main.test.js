@@ -39,6 +39,9 @@ let newRecipeID = "";
 // depends on where the new recipe is located on the home page
 let newRecipeIndex = 0;
 
+// title of newly explored recipe
+let exploredTitle = "";
+
 describe("Basic user flow for Website", () => {
   // First, visit the website
   beforeAll(async () => {
@@ -68,6 +71,109 @@ describe("Basic user flow for Website", () => {
     const button = await page.$("#submit");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Click [Explore] on home page", async () => {
+    const button = await page.$(".b");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Click the first recipe on Explore page", async () => {
+    // wait for images to load
+    await page.waitForTimeout(3000);
+    const buttons = await page.$$(".recipe");
+    await buttons[0].click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("add the newly explored recipe to the home library on viewRecipeExplore.html", async () => {
+    // wait for image to load
+    await page.waitForTimeout(2000);
+    // momorize the title so that we can search for it later
+    const titleTag = await page.$("#title");
+    const innerText = await titleTag.getProperty("innerText");
+    exploredTitle = innerText["_remoteObject"].value;
+    console.log(exploredTitle);
+    const favBtn = await page.$("#favBtn");
+    await favBtn.click();
+    // wait for searched recipe to be added
+    await page.waitForTimeout(1000);
+  });
+
+  it("Click the back button on viewRecipeExplore.html", async () => {
+    const button = await page.$("#backBtn");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Click [Home] on home page", async () => {
+    // wait for images to load
+    await page.waitForTimeout(3000);
+    const button = await page.$(".a");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("search for the newly explored recipe", async () => {
+    await page.type("input.search", exploredTitle);
+    const search = await page.$("button.search-button");
+    await search.click(search);
+    // wait for searched recipe to load
+    await page.waitForTimeout(1000);
+  });
+
+  it("check whether the explored recipe is on home page", async () => {
+    // wait for images to load
+    await page.waitForTimeout(2000);
+    const recipes = await page.$$(".recipe");
+    let exploredRecipeIndex = -1;
+    for (let i = 0; i < recipes.length; i++) {
+      const innerText = await recipes[i].getProperty("innerText");
+      const currTitle = innerText["_remoteObject"].value;
+      if (currTitle === exploredTitle) {
+        exploredRecipeIndex = i;
+        break;
+      }
+    }
+    await recipes[exploredRecipeIndex].click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("Click the edit button on viewRecipe.html", async () => {
+    const button = await page.$("#editBtn");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("delete current recipe on editRecipe.html", async () => {
+    const button = await page.$("#deleteRecipeBtn");
+    await button.click();
+    await page.waitForNavigation({ waitUntil: "networkidle2" });
+  });
+
+  it("search for the newly explored recipe", async () => {
+    await page.type("input.search", exploredTitle);
+    const search = await page.$("button.search-button");
+    await search.click(search);
+    // wait for searched recipe to load
+    await page.waitForTimeout(1000);
+  });
+
+  it("check whether the newly explored recipe is deleted from home page", async () => {
+    // wait for images to load
+    await page.waitForTimeout(2000);
+    const recipes = await page.$$(".recipe");
+    let exploredRecipeIndex = -1;
+    for (let i = 0; i < recipes.length; i++) {
+      const innerText = await recipes[i].getProperty("innerText");
+      const currTitle = innerText["_remoteObject"].value;
+      if (currTitle === exploredTitle) {
+        exploredRecipeIndex = i;
+        break;
+      }
+    }
+    expect(exploredRecipeIndex).toBe(-1);
   });
 
   it("Click [createButton] on home page", async () => {
