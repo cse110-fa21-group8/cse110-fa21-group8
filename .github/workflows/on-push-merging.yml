@@ -1,32 +1,32 @@
-name: on-push-main-staging
+name: on-push-merging
 on:
   push:
     branches:
-      - main-staging
+      - merging
 jobs:
   unit_test:
-    name: unit Test (main-staging branch)
+    name: unit Test (merging branch)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm ci
       - run: npm run unit-test
   UI_test:
-    name: UI Test (main-staging branch)
+    name: UI Test (merging branch)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm ci
-      - run: npm run main-staging-test
+      - run: npm run merging-test
   style_test:
-    name: Coding Style Test (main-staging branch)
+    name: Coding Style Test (merging branch)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm ci
       - run: npx prettier --check .
   lint_JS_test:
-    name: Linting JS Test (main-staging branch)
+    name: Linting JS Test (merging branch)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
