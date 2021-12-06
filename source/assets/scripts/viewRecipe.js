@@ -97,25 +97,25 @@ let favBtn = document.getElementById("favBtn");
 // check if already favored
 if (result.tags.includes("favorite")) {
   favBtn.setAttribute("src", "../source/assets/images/heartFull.png");
-}
-else {
+} else {
   favBtn.setAttribute("src", "../source/assets/images/heartEmpty.png");
 }
 favBtn.addEventListener("click", async function () {
   // if not favored
   if (favBtn.getAttribute("src") == "../source/assets/images/heartEmpty.png") {
-    let response = await favTag(_id, "fav")
-                          .then(resolved => {return resolved});
+    let response = await favTag(_id, "fav").then((resolved) => {
+      return resolved;
+    });
     console.log(response);
     favBtn.setAttribute("src", "../source/assets/images/heartFull.png");
   } else {
     // if favored
-    let response = await favTag(_id, "unfav")
-                          .then(resolved => {return resolved});
+    let response = await favTag(_id, "unfav").then((resolved) => {
+      return resolved;
+    });
     console.log(response);
     favBtn.setAttribute("src", "../source/assets/images/heartEmpty.png");
   }
-
 });
 
 // Move to edit recipe page
@@ -272,9 +272,10 @@ let instructions = document.querySelectorAll("#instructions > div > input");
 let confetti = new JSConfetti();
 instructions.forEach((element) => {
   element.addEventListener("click", () => {
-    if (checkTasks(instructions)) confetti.addConfetti({
-      emojis: ['🧊', '🐻', '😈',],
-   });
+    if (checkTasks(instructions))
+      confetti.addConfetti({
+        emojis: ["🧊", "🐻", "😈"],
+      });
   });
 });
 

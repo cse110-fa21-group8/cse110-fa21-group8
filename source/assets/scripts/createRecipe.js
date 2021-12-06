@@ -1,6 +1,6 @@
 import {addRecipe} from "./CRUD.js";
 
-const userName = window.location.hash.replace(/^#/, '');
+const userName = window.location.hash.replace(/^#/, "");
 let confirmBtn = document.getElementById("confirmBtn");
 let uploadImg = document.getElementById("uploadImg");
 

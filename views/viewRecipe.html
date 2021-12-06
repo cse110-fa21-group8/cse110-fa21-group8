@@ -47,17 +47,23 @@
         <span id="closeBtn">&times;</span>
         <p id="timeInput" class="show">
           <input
-            type="text"
+            type="number"
             id="minutesInput"
-            size="2"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type="number"
+            min="0"
+            max="99"
             maxlength="2"
             defaultValue="0"
           />
           :
           <input
-            type="text"
+            type="number"
             id="secondsInput"
-            size="2"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type="number"
+            min="0"
+            max="99"
             maxlength="2"
             defaultValue="0"
           />

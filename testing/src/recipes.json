@@ -1,0 +1,57 @@
+{
+  "recipes": [
+    {
+      "title": "Chow Mein",
+      "servings": "2",
+      "cookTime": "15",
+      "author": "Tianyue Zhang",
+      "selectedTags": ["Dinner", "Healthy", "Cheap!", "Intermediate"],
+      "image": "./testing/src/chow-mein.jpg",
+      "ingredients": [
+        "chicken breast",
+        "peanut oil",
+        "garlic",
+        "cabbage",
+        "carrot",
+        "noodles",
+        "soy sauce",
+        "water"
+      ],
+      "instructions": [
+        "Marinate Chicken",
+        "Heat oil",
+        "Add garlic and stir fry",
+        "Add chicken and stir fry",
+        "Add cabbage, carrot, and stir fry",
+        "Add noodles, sauce and water",
+        "Stir fry"
+      ]
+    },
+    {
+      "title": "Swedish Meatballs",
+      "servings": "5",
+      "cookTime": "50",
+      "author": "Terry Zhang",
+      "selectedTags": ["Dinner", "Advanced"],
+      "image": "./testing/src/swedish-meatballs.jpg",
+      "ingredients": [
+        "ground beef",
+        "ground pork",
+        "onion",
+        "egg",
+        "black pepper",
+        "salt",
+        "oil",
+        "gravy"
+      ],
+      "instructions": [
+        "cut onion",
+        "mix onion, salt, black pepper, egg, and meat",
+        "cook meatball in boil water",
+        "cook drained meatball in hot oil",
+        "add gravy",
+        "stir and fry"
+      ]
+    }
+  ]
+}

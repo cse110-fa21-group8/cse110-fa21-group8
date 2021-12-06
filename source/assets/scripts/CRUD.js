@@ -80,9 +80,9 @@ async function uploadImg(image, username, title) {
   // data to upload
   const formData = new FormData();
   let imgName = username + title + ".jpg";
-  imgName = imgName.replace(/\ /g,"_");
+  imgName = imgName.replace(/\ /g, "_");
   // if file is image
-  formData.append("image", image,  imgName);
+  formData.append("image", image, imgName);
   const response = await fetch(serverUrl + "saveImg", {
     method: "POST",
     body: formData,
@@ -96,8 +96,8 @@ async function uploadImg(image, username, title) {
 // returns {Blob} imagelink to put to src
 async function getImg(imgDirRaw) {
   // check if imgDir is at the server
-  const imgDir = imgDirRaw.replace(/\ /g,"_");
-  if (imgDir.substring(0,9) != "user_img/") {
+  const imgDir = imgDirRaw.replace(/\ /g, "_");
+  if (imgDir.substring(0, 9) != "user_img/") {
     console.log(imgDir);
     return Promise.resolve(imgDir);
   }
@@ -146,11 +146,11 @@ async function addRecipe(
   // if no img is chosen
   if (img == undefined) {
     imgDir = "user_img/def.jpg";
-  }
-  else {
+  } else {
     // server dir to image
-    imgDir = await uploadImg(img, username, title)
-      .then(resolved => {return resolved});
+    imgDir = await uploadImg(img, username, title).then((resolved) => {
+      return resolved;
+    });
   }
   const response = await fetch(serverUrl + "add", {
     method: "POST",
@@ -193,19 +193,17 @@ async function getRecipe(username) {
   });
   const res = await response.text();
   let resObj = JSON.parse(res);
-  if(!(resObj.length == 0))
-  {
-
-  
+  if (!(resObj.length == 0)) {
     console.log(resObj);
 
     //if(resObj)
     // traverse each to parse the image link
-    resObj.forEach(async function(recipe) {
-        // check if the image in recipe is stored in the server(or outside link)
-    let imgBlob = await getImg(recipe.img)
-                          .then(resolve => {return resolve});
-        recipe.img = imgBlob;
+    resObj.forEach(async function (recipe) {
+      // check if the image in recipe is stored in the server(or outside link)
+      let imgBlob = await getImg(recipe.img).then((resolve) => {
+        return resolve;
+      });
+      recipe.img = imgBlob;
     });
     console.log(resObj[0].img);
   }
@@ -233,8 +231,9 @@ async function getOneRecipe(_id) {
   // change the img attribute to atcual blob link or original link
   let resObj = JSON.parse(res);
   // check if the image in recipe is stored in the server(or outside link)
-  let imgBlob = await getImg(resObj.img)
-                        .then(resolve => {return resolve});
+  let imgBlob = await getImg(resObj.img).then((resolve) => {
+    return resolve;
+  });
   resObj.img = imgBlob;
   return Promise.resolve(resObj);
 }
@@ -247,7 +246,7 @@ async function favTag(_id, favUnfav) {
     },
     body: JSON.stringify({
       _id: _id,
-      favUnfav : favUnfav
+      favUnfav: favUnfav,
     }),
   });
   const res = await response.text();
@@ -259,22 +258,20 @@ async function favTag(_id, favUnfav) {
  * return one recipe based on title
  * @returns {JSON} a json of all recipe info
  */
- async function getOneRecipeExplore(idNum) {
+async function getOneRecipeExplore(idNum) {
   let apiLink = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
   // const apiKey = "&apiKey=c6c6e98c49db4067b8ac5b9fce7703cd";
   const apiKey = "126a45f034mshd1de42a24e5a6d2p14ccefjsnd4686ee15764";
 
   // set mode automatically
   let infoQuery = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${idNum}/information`;
-  let source = await fetch(infoQuery,
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": apiLink,
-        "x-rapidapi-key": apiKey,
-      },
-    }
-    );
+  let source = await fetch(infoQuery, {
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": apiLink,
+      "x-rapidapi-key": apiKey,
+    },
+  });
   let sourceJson = await source.json();
 
   return sourceJson;
@@ -303,10 +300,10 @@ async function updateRecipe(
   // if user didn't update image
   if (img == undefined) {
     imgDir = "original";
-  }
-  else {
-    imgDir = await uploadImg(img, username, title)
-                      .then(resolved => {return resolved});
+  } else {
+    imgDir = await uploadImg(img, username, title).then((resolved) => {
+      return resolved;
+    });
   }
 
   // set mode automatically
@@ -341,8 +338,8 @@ async function updateRecipe(
  */
 async function deleteRecipe(username, _id, title) {
   const temp = "user_img" + "/" + username + title;
-  const imgDir = temp.replace(/\ /g,"_");
-  
+  const imgDir = temp.replace(/\ /g, "_");
+
   // set mode automatically
   // console.log(_id);
   const response = await fetch(serverUrl + "delete", {
@@ -383,7 +380,6 @@ async function deleteRecipe(username, _id, title) {
 //     return processedUrl;
 //   }
 // }
-
 
 // old implementation of deleteimg
 // async function removeImg(imgDir) {
