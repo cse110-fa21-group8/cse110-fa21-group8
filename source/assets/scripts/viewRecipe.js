@@ -94,6 +94,9 @@ function fillInstruction(instruction, instructionCount) {
 
 // Toggle favorites button
 let favBtn = document.getElementById("favBtn");
+let favPopupBox = document.getElementById("favPopupBox");
+let favText = document.getElementById("favText");
+let counter = 0;
 // check if already favored
 if (result.tags.includes("favorite")) {
   favBtn.setAttribute("src", "../source/assets/images/heartFull.png");
@@ -106,17 +109,28 @@ favBtn.addEventListener("click", async function () {
     let response = await favTag(_id, "fav").then((resolved) => {
       return resolved;
     });
-    console.log(response);
     favBtn.setAttribute("src", "../source/assets/images/heartFull.png");
+    favText.textContent = "Added to Favorites";
   } else {
     // if favored
     let response = await favTag(_id, "unfav").then((resolved) => {
       return resolved;
     });
-    console.log(response);
     favBtn.setAttribute("src", "../source/assets/images/heartEmpty.png");
+    favText.textContent = "Removed from Favorites";
   }
+  counter = 2;
+  favPopupBox.setAttribute("class", "show");
 });
+
+// Popup countdown
+setInterval(function () {
+  if (counter > 0) {
+    counter--;
+  } else {
+    favPopupBox.setAttribute("class", "hide");
+  }
+}, 1000);
 
 // Move to edit recipe page
 let editBtn = document.getElementById("editBtn");
