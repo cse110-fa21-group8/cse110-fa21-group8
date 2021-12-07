@@ -123,6 +123,9 @@ function fillInstruction(instruction, instructionCount) {
 // toggle favorites button
 let favBtn = document.getElementById("favBtn");
 let recipeId;
+let favPopupBox = document.getElementById("favPopupBox");
+let favText = document.getElementById("favText");
+let counter = 0;
 favBtn.addEventListener("click", async function () {
   // if logged in
   if (loggedIn) {
@@ -166,6 +169,7 @@ favBtn.addEventListener("click", async function () {
       });
       console.log("in line 132 in viewRecipeExplore" + recipeId);
       favBtn.setAttribute("src", "../source/assets/images/cancel.png");
+      favText.textContent = "Saved to My Recipes";
     }
     // unsave
     else if (
@@ -179,13 +183,25 @@ favBtn.addEventListener("click", async function () {
       );
       console.log(res);
       favBtn.setAttribute("src", "../source/assets/images/add.png");
+      favText.textContent = "Deleted from My Recipes";
     }
   }
   // if not logged in
   else {
     window.location.href = "register.html";
   }
+  counter = 2;
+  favPopupBox.setAttribute("class", "show");
 });
+
+// Popup countdown
+setInterval(function () {
+  if (counter > 0) {
+    counter--;
+  } else {
+    favPopupBox.setAttribute("class", "hide");
+  }
+}, 1000);
 
 let backBtn = document.getElementById("backBtn");
 backBtn.addEventListener("click", function () {
