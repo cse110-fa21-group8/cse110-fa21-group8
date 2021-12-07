@@ -1,3 +1,6 @@
+const websiteTested =
+  "https://testing.tianyuezhang1997.site/cse110-fa21-group8/merging/";
+
 const recipesDemo = require("./src/recipes.json");
 
 const accountsDemo = require("./src/accounts.json");
@@ -32,22 +35,22 @@ const ingredients = recipesDemo.recipes[1].ingredients;
 // instructions to be added (from top to bottom)
 const instructions = recipesDemo.recipes[1].instructions;
 
-// will be replaced by the "auto generated recipe from back-end"
+// will be replaced by the "auto generated recipe id from back-end"
 let newRecipeID = "";
 
-// will be updated as searching result
-// depends on where the new recipe is located on the home page
-let newRecipeIndex = 0;
-
-// title of newly explored recipe
+// title of new recipe added from explore page
 let exploredTitle = "";
+
+// Estimated milliseconds needed for one image being loaded on website
+const oneImageLoaded = 3000;
+
+// Estimated milliseconds needed for multiple images being loaded on website
+const multipleImagesLoaded = 3000;
 
 describe("Basic user flow for Website", () => {
   // First, visit the website
   beforeAll(async () => {
-    await page.goto(
-      "https://testing.tianyuezhang1997.site/cse110-fa21-group8/merging"
-    );
+    await page.goto(websiteTested);
   });
 
   // Keep checking whether there is some "ERROR" in the console log
@@ -61,13 +64,13 @@ describe("Basic user flow for Website", () => {
     //expect(message.type()).not.toBe("error");
   });
 
-  it("click login on landing page", async () => {
+  it("click login on landing page - index.html", async () => {
     const buttons = await page.$$("#links > a");
     await buttons[2].click(); // Login button
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("Input username and password on createRecipe.html", async () => {
+  it("Input username and password on login.html", async () => {
     await page.type("#username", username);
     await page.type("#password", password);
     const button = await page.$("#submit");
@@ -75,15 +78,17 @@ describe("Basic user flow for Website", () => {
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("Click [Explore] on home page", async () => {
+  it("Click [Explore] on homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
     const button = await page.$(".b");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("Click the first recipe on Explore page", async () => {
+  it("Click the first recipe on explorePage.html", async () => {
     // wait for images to load
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(multipleImagesLoaded);
     const buttons = await page.$$(".recipe");
     await buttons[0].click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
@@ -91,16 +96,15 @@ describe("Basic user flow for Website", () => {
 
   it("add the newly explored recipe to the home library on viewRecipeExplore.html", async () => {
     // wait for image to load
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(oneImageLoaded);
     // momorize the title so that we can search for it later
     const titleTag = await page.$("#title");
     const innerText = await titleTag.getProperty("innerText");
     exploredTitle = innerText["_remoteObject"].value;
-    console.log(exploredTitle);
     const favBtn = await page.$("#favBtn");
     await favBtn.click();
-    // wait for searched recipe to be added
-    await page.waitForTimeout(1000);
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
   });
 
   it("Click the back button on viewRecipeExplore.html", async () => {
@@ -109,25 +113,25 @@ describe("Basic user flow for Website", () => {
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("Click [Home] on home page", async () => {
+  it("Click [Home] on explorePage.html", async () => {
     // wait for images to load
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(multipleImagesLoaded);
     const button = await page.$(".a");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("search for the newly explored recipe", async () => {
+  it("search for the newly explored recipe on homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
     await page.type("input.search", exploredTitle);
     const search = await page.$("button.search-button");
     await search.click(search);
-    // wait for searched recipe to load
-    await page.waitForTimeout(1000);
   });
 
-  it("check whether the explored recipe is on home page", async () => {
+  it("check whether the explored recipe is on homePage.html", async () => {
     // wait for images to load
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(multipleImagesLoaded);
     const recipes = await page.$$(".recipe");
     let exploredRecipeIndex = -1;
     for (let i = 0; i < recipes.length; i++) {
@@ -143,28 +147,32 @@ describe("Basic user flow for Website", () => {
   });
 
   it("Click the edit button on viewRecipe.html", async () => {
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
     const button = await page.$("#editBtn");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
   it("delete current recipe on editRecipe.html", async () => {
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
     const button = await page.$("#deleteRecipeBtn");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("search for the newly explored recipe", async () => {
+  it("search for the newly explored recipe on homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
     await page.type("input.search", exploredTitle);
     const search = await page.$("button.search-button");
     await search.click(search);
-    // wait for searched recipe to load
-    await page.waitForTimeout(1000);
   });
 
-  it("check whether the newly explored recipe is deleted from home page", async () => {
+  it("check whether the newly explored recipe is deleted from homePage.html", async () => {
     // wait for images to load
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(multipleImagesLoaded);
     const recipes = await page.$$(".recipe");
     let exploredRecipeIndex = -1;
     for (let i = 0; i < recipes.length; i++) {
@@ -178,7 +186,7 @@ describe("Basic user flow for Website", () => {
     expect(exploredRecipeIndex).toBe(-1);
   });
 
-  it("Click [createButton] on home page", async () => {
+  it("Click [createButton] on homePage.html", async () => {
     const button = await page.$("#createButton");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
@@ -208,10 +216,6 @@ describe("Basic user flow for Website", () => {
     const fileToUpload = image;
     const button = await page.$("#uploadImg");
     await button.uploadFile(fileToUpload);
-    //const fileChosen = await page.$("[aria-hidden]");
-    //const innerText = await fileChosen.getProperty("innerText");
-    //fileName = innerText["_remoteObject"].value;
-    //console.log(fileName);
   });
 
   it("Clear existing text in Ingredient 1 on createRecipe.html", async () => {
@@ -267,6 +271,8 @@ describe("Basic user flow for Website", () => {
   });
 
   it("Click the back button on viewRecipe.html", async () => {
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
     // get ID : "#......" of the newly created recipe
     const viewRecipeURL = await page.url();
     let subStrBegin = 0;
@@ -282,32 +288,35 @@ describe("Basic user flow for Website", () => {
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("go to the second page, then go back to the first page", async () => {
+  it("go to the second homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
     // click right button
     const right = await page.$("#right");
     await right.click(right);
-    // wait for recipes to load
-    await page.waitForTimeout(1000);
+  });
+
+  it("go back to the first homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
     // click left button
     const left = await page.$("#left");
     await left.click(left);
-    // wait for recipes to load
-    await page.waitForTimeout(1000);
   });
 
-  it("search for the newly created recipe", async () => {
+  it("search for the newly created recipe on homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
     await page.type("input.search", title);
     const search = await page.$("button.search-button");
     await search.click(search);
-    // wait for searched recipe to load
-    await page.waitForTimeout(1000);
   });
 
-  it("check whether the new recipe is on home page", async () => {
+  it("check whether the new recipe is on homePage.html", async () => {
     // wait for images to load
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(multipleImagesLoaded);
     // find the index of the new recipe
-    newRecipeIndex = await page.evaluate((newRecipeID) => {
+    let newRecipeIndex = await page.evaluate((newRecipeID) => {
       let recipeIndex = -1;
       const recipes = document.querySelectorAll(".recipe");
       for (let i = 0; i < recipes.length; i++) {
@@ -326,6 +335,8 @@ describe("Basic user flow for Website", () => {
   });
 
   it("check all information is correct on viewRecipe.html", async () => {
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
     let innerText = "";
     // check "title" is the same as expected
     const viewTitle = await page.$("#title");
@@ -364,7 +375,7 @@ describe("Basic user flow for Website", () => {
     const startStopBtn = await page.$("#startStopBtn");
     await startStopBtn.click();
     // wait the timer to beep
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(3500);
     // stop the timer
     await startStopBtn.click();
     // close the timer
@@ -391,23 +402,25 @@ describe("Basic user flow for Website", () => {
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("Check whether editing is functioning on editRecipe.html", async () => {
+  it("Apeend recipe title with (updated) on editRecipe.html", async () => {
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
     await page.focus("#title");
     await page.keyboard.press("End");
     await page.type("#title", " (Updated)");
   });
 
-  it("Click the confirm button on createRecipe.html", async () => {
+  it("Click the confirm button on editRecipe.html", async () => {
     const button = await page.$("#confirmBtn");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
   it("Click the favorite button on viewRecipe.html", async () => {
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
     const favBtn = await page.$("#favBtn");
     await favBtn.click();
-    // wait for the current recipe to be recored as favorited
-    await page.waitForTimeout(1000);
   });
 
   it("Click the back button on viewRecipe.html", async () => {
@@ -416,17 +429,32 @@ describe("Basic user flow for Website", () => {
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("click on favorite tag", async () => {
-    // click favorite button
+  it("select the favorite tag on homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
+    // select the favorite tag
     const favorite = await page.$("#favorite");
     await favorite.click();
-    // wait for favorite recipes to load
-    await page.waitForTimeout(1000);
   });
 
-  it("check whether the recipe is updated on home page", async () => {
+  it("check whether the recipe is updated on homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
+    // find the index of the new recipe
+    let updatedRecipeIndex = await page.evaluate((newRecipeID) => {
+      let recipeIndex = -1;
+      const recipes = document.querySelectorAll(".recipe");
+      for (let i = 0; i < recipes.length; i++) {
+        const href = "" + recipes[i].getAttribute("href");
+        if (href.includes(newRecipeID)) {
+          recipeIndex = i;
+          break;
+        }
+      }
+      return recipeIndex;
+    }, newRecipeID);
     const buttons = await page.$$(".recipe");
-    const updatedRecipe = buttons[newRecipeIndex];
+    const updatedRecipe = buttons[updatedRecipeIndex];
     // check whether title is updated
     const innerText = await updatedRecipe.getProperty("innerText");
     const updatedRecipeText = innerText["_remoteObject"].value;
@@ -437,28 +465,32 @@ describe("Basic user flow for Website", () => {
   });
 
   it("Click the edit button on viewRecipe.html", async () => {
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
     const button = await page.$("#editBtn");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
   it("delete current recipe on editRecipe.html", async () => {
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
     const button = await page.$("#deleteRecipeBtn");
     await button.click();
     await page.waitForNavigation({ waitUntil: "networkidle2" });
   });
 
-  it("click on favorite tag", async () => {
-    // click favorite button
+  it("select the favorite tag on homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
+    // select the favorite tag
     const favorite = await page.$("#favorite");
     await favorite.click();
-    // wait for favorite recipes to load
-    await page.waitForTimeout(1000);
   });
 
-  it("check whether the new recipe is deleted from home page", async () => {
+  it("check whether the new recipe is deleted from homePage.html", async () => {
     // wait for images to load
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(multipleImagesLoaded);
     // find the index of the deleted new recipe
     const deletedRecipeIndex = await page.evaluate((newRecipeID) => {
       let recipeIndex = -1;
@@ -475,17 +507,23 @@ describe("Basic user flow for Website", () => {
     expect(deletedRecipeIndex).toBe(-1);
   });
 
-  it("search for the newly created recipe", async () => {
+  it("unselect the favorite tag on homePage.html", async () => {
+    // wait for images to load
+    await page.waitForTimeout(multipleImagesLoaded);
+    // unselect the favorite tag
+    const favorite = await page.$("#favorite");
+    await favorite.click();
+  });
+
+  it("search for the newly created recipe on homePage.html", async () => {
     await page.type("input.search", title);
     const search = await page.$("button.search-button");
     await search.click(search);
-    // wait for searched recipe to load
-    await page.waitForTimeout(1000);
   });
 
-  it("check whether the new recipe is deleted from home page", async () => {
+  it("check whether the new recipe is deleted from homePage.html", async () => {
     // wait for images to load
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(multipleImagesLoaded);
     // find the index of the deleted new recipe
     const deletedRecipeIndex = await page.evaluate((newRecipeID) => {
       let recipeIndex = -1;
