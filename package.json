@@ -25,8 +25,8 @@
     "home-explore-test": "jest home-explore.test.js",
     "create-skeletons-staging-test": "jest create-skeletons-staging.test.js",
     "create-skeletons-test": "jest create-skeletons.test.js",
-    "merging-test": "jest merging.test.js",
-    "main-test": "jest main.test.js",
+    "merging-test": "jest --testTimeout=10000 merging.test.js",
+    "main-test": "jest --testTimeout=10000 main.test.js",
     "unit-test": "jest unit.test.js"
   },
   "jest": {
