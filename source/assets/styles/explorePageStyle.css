@@ -54,7 +54,7 @@ body {
 .recipeSpan {
   position: absolute;
   bottom: 0%;
-  background-color: rgb(239, 241,219, .9);
+  background-color: rgb(239, 241, 219, 0.9);
   border-radius: 0 10.5px 0 10.5px;
   padding: 2% 8% 2% 8%;
   color: rgb(42, 80, 105);
@@ -270,12 +270,11 @@ div[hide="true"] > * {
   opacity: 0;
 }
 
- @media (min-width: 768px) {
-    body {
-
-      background-color: black;
-    }
- }
+@media (min-width: 768px) {
+  body {
+    background-color: black;
+  }
+}
 
 /*****************/
 /** MOBILE VIEW **/

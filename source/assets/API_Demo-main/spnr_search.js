@@ -188,7 +188,9 @@ async function init() {
         if (pointer >= res.length) break;
 
         // Create recipe element
-        recipeElements[i].style.backgroundImage = `url(${res[pointer]["image"]})`;
+        recipeElements[
+          i
+        ].style.backgroundImage = `url(${res[pointer]["image"]})`;
         recipeSpans[i].textContent = res[pointer]["title"];
 
         // recipe id

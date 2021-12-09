@@ -24,7 +24,6 @@ async function init() {
     });
     recipes = result;
     return Promise.resolve(true);
-    
   }
 
   let fetchSuccessful = await fetchRecipes(userName);
@@ -69,8 +68,8 @@ async function init() {
 
       // Create recipe element
       console.log(recipes[i].img);
-      
-      recipeElements[i].style.backgroundImage = `url(${recipes[i].img})`
+
+      recipeElements[i].style.backgroundImage = `url(${recipes[i].img})`;
       recipeSpans[i].textContent = recipes[i].title;
       recipeElements[i].setAttribute(
         "href",
