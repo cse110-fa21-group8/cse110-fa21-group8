@@ -36,9 +36,9 @@ body {
 }
 
 /* gives margin to first element after navbar so doesn't overlap */
-#navbarGrid + * {
-  margin-top: 65px;
-}
+  #title {
+    margin-block-start: 65px;
+  }
 
 #navbarGrid > * {
   margin: 1mm;
@@ -234,9 +234,9 @@ body {
     grid-template-columns: 5px 60px auto 60px 60px;
   }
 
-  /* gives margin to first element after navbar so doesn't overlap */
-  #navbarGrid + * {
-    margin-top: 82px;
+/* gives margin to first element after navbar so doesn't overlap */
+  #title {
+    margin-block-start: 82px;
   }
 
   #navbarGrid > * {
