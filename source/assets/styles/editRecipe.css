@@ -223,6 +223,8 @@ body {
 
 #deleteRecipeBtn {
   background-color: #ff9994;
+  /* fits to grid width, needed because borders on inside of inputs */
+  width: calc(100% + 2mm);  
 }
 
 /******************/
@@ -291,6 +293,8 @@ body {
 
   #deleteRecipeBtn {
     grid-row: 5/6;
-    grid-column: 1/4;
+    grid-column: 1/4;  
+    /* fits to grid width, needed because borders on inside of inputs */
+    width: calc(100% + 2mm);  
   }
 }
