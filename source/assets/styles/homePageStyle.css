@@ -39,17 +39,26 @@ body {
 
 .recipe {
   display: grid;
+  position: relative;
   grid-template-rows: auto auto;
+  background-size: 100% 100%;
   background-color: #eff1db;
   border: 3pt solid white;
   border-radius: 15px;
-  text-align: center;
-  font-size: 17pt;
   height: 200px;
   width: 28.5em;
   padding: 12px;
-  color: rgb(42, 80, 105);
   margin: 5px 10px 4.1px 5px;
+}
+
+.recipeSpan {
+  position: absolute;
+  bottom: 0%;
+  background-color: rgb(239, 241,219, .9);
+  border-radius: 0 10.5px 0 10.5px;
+  padding: 2% 8% 2% 8%;
+  color: rgb(42, 80, 105);
+  font-weight: bold;
   font-size: 12pt;
 }
 
@@ -82,6 +91,7 @@ body {
   border: 3pt solid rgb(214, 177, 108);
   opacity: 0.5;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #createButton:hover {
@@ -118,10 +128,16 @@ body {
 
 .search-button {
   grid-area: button;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-right: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-right: 100px;
   border-radius: 15px;
+}
+
+.logout-button {
+  grid-area: logout;
+  margin-top: 16px;
+  border: none;
 }
 
 .search-button:hover {
@@ -163,7 +179,7 @@ body {
 .home-grid {
   display: grid;
   grid-template-areas:
-    "logo logo a b search search drop button"
+    "logo a b search search drop button logout"
     "tags recipes recipes recipes recipes recipes recipes recipes"
     "tags recipes recipes recipes recipes recipes recipes recipes"
     "tags recipes recipes recipes recipes recipes recipes recipes"
@@ -237,23 +253,23 @@ body {
 
 .tags > * {
   border: solid;
-  border-radius: 30px;
-  border-color: burlywood;
   margin-top: 0px;
   margin-bottom: -12px;
   margin-left: 40px;
   margin-right: 40px;
   padding: 4mm;
-  background-color: wheat;
   opacity: 0.5;
   cursor: pointer;
-  font-size: 14pt;
+  font-size: 13pt;
   color: rgb(42, 80, 105);
+  background-color: rgb(209, 233, 241);
+  border: 3px solid rgb(144, 179, 202);
+  border-radius: 30px;
 }
 
 .tags > *:hover {
-  background-color: rgb(209, 233, 241);
-  border: 3px solid rgb(144, 179, 202);
+  border-color: burlywood;
+  background-color: wheat;
 }
 
 .selected {
@@ -266,6 +282,14 @@ div[hide="true"] > *:hover {
   color: rgba(0, 0, 0, 0);
   cursor: not-allowed;
   background-image: url("../images/amjad.jpg");
+  background-size: 400px 800px;
+}
+
+div[hide="true"]:hover {
+  overflow-y: hidden;
+  color: rgba(0, 0, 0, 0);
+  cursor: not-allowed;
+  background-image: url("../images/amjadRedEyes.png");
   background-size: 400px 800px;
 }
 

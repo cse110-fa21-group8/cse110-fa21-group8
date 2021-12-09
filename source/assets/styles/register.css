@@ -23,7 +23,7 @@ body {
 
 /* gives margin to first element after navbar so doesn't overlap */
 #navbarGrid + * {
-  margin-top: 82px;
+  margin-top: 15%;
 }
 
 #navbarGrid > * {
@@ -49,7 +49,7 @@ form {
   /* width: 95%; */
 
   /* center form */
-  margin: auto;
+  margin: 50px;
   place-items: center;
 }
 
