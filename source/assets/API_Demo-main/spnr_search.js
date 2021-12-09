@@ -134,6 +134,7 @@ async function init() {
 
     // Fill up explore grid
     const recipeElements = document.querySelectorAll(".recipe");
+    const recipeSpans = document.querySelectorAll(".recipeSpan");
     // const recipeWH = 60;
     var pointer = 0;
 
@@ -187,15 +188,12 @@ async function init() {
         if (pointer >= res.length) break;
 
         // Create recipe element
-        const recipe = document.createElement("img");
-        recipe.setAttribute("src", res[pointer]["image"]);
-        // recipe.setAttribute("width", recipeWH);
-        // recipe.setAttribute("height", recipeWH);
+        recipeElements[i].style.backgroundImage = `url(${res[pointer]["image"]})`;
+        recipeSpans[i].textContent = res[pointer]["title"];
 
         // recipe id
         let idNum = res[pointer].id;
 
-        recipeElements[i].textContent = res[pointer]["title"];
         if (loggedIn) {
           recipeElements[i].setAttribute(
             "href",
@@ -207,8 +205,6 @@ async function init() {
             "viewRecipeExplore.html#" + idNum
           );
         }
-        recipeElements[i].appendChild(recipe);
-
         pointer++;
       }
 
