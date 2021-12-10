@@ -4,7 +4,7 @@ We created a CRUD app in which handles recipes. Users can create new recipes, vi
 ## Team Page:
 [Click here](https://cse110-fa21-group8.github.io/cse110-fa21-group8/admin/team)
 ## Website:
-[Website](https://frosty-poincare-dc3f79.netlify.app)
+[Website](https://devildishes.netlify.app/)
 ## JSDocs:
 [JSDocs](https://frosty-poincare-dc3f79.netlify.app/JSDocs)
 ## Workflow Instruction (Updated 11/27/2021):
