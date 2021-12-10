@@ -82,7 +82,7 @@ test("authenticate-register-failed (wrong password format)", async () => {
     }
   );
   expect(res).toBe(
-    "username shuold only include letters and numbers, username shold contain more than 3 characters, password should contain more than 7 characters"
+    "username should only include letters and numbers, username should contain more than 3 characters, and password should contain more than 7 characters"
   );
 });
 
@@ -96,7 +96,7 @@ test("authenticate-register-failed (wrong username format)", async () => {
     return resolve;
   });
   expect(res).toBe(
-    "username shuold only include letters and numbers, username shold contain more than 3 characters, password should contain more than 7 characters"
+    "username should only include letters and numbers, username should contain more than 3 characters, and password should contain more than 7 characters"
   );
 });
 
