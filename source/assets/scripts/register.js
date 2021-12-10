@@ -32,3 +32,8 @@ reg.addEventListener("click", async function () {
     error.innerHTML = "Password doesn't match";
   }
 });
+
+let backBtn = document.getElementById("backBtn");
+backBtn.addEventListener("click", function () {
+  window.location.href = "/";
+});
