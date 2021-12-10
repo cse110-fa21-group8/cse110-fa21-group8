@@ -71,8 +71,8 @@ async function init() {
       const recipe = document.createElement("span");
       console.log(recipes[i].img);
       recipe.setAttribute("class", "recipeSpan");
-      recipeElements[i].style.backgroundImage = `url(${recipes[i].img})`
-      
+      recipeElements[i].style.backgroundImage = `url(${recipes[i].img})`;
+
       recipe.textContent = recipes[i].title;
       recipeElements[i].setAttribute(
         "href",
