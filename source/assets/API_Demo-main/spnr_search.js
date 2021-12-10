@@ -5,7 +5,6 @@ let queryLink = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 let apiLink = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 // const apiKey = "&apiKey=c6c6e98c49db4067b8ac5b9fce7703cd";
 const apiKey = "126a45f034mshd1de42a24e5a6d2p14ccefjsnd4686ee15764";
-let resultSection = document.getElementById("result");
 let detail = document.getElementById("detail");
 let res = [];
 
@@ -134,6 +133,7 @@ async function init() {
 
     // Fill up explore grid
     const recipeElements = document.querySelectorAll(".recipe");
+    const recipeSpans = document.querySelectorAll(".recipeSpan");
     // const recipeWH = 60;
     var pointer = 0;
 
@@ -187,15 +187,14 @@ async function init() {
         if (pointer >= res.length) break;
 
         // Create recipe element
-        const recipe = document.createElement("img");
-        recipe.setAttribute("src", res[pointer]["image"]);
-        // recipe.setAttribute("width", recipeWH);
-        // recipe.setAttribute("height", recipeWH);
+        recipeElements[
+          i
+        ].style.backgroundImage = `url(${res[pointer]["image"]})`;
+        recipeSpans[i].textContent = res[pointer]["title"];
 
         // recipe id
         let idNum = res[pointer].id;
 
-        recipeElements[i].textContent = res[pointer]["title"];
         if (loggedIn) {
           recipeElements[i].setAttribute(
             "href",
@@ -207,8 +206,6 @@ async function init() {
             "viewRecipeExplore.html#" + idNum
           );
         }
-        recipeElements[i].appendChild(recipe);
-
         pointer++;
       }
 

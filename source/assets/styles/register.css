@@ -23,7 +23,7 @@ body {
 
 /* gives margin to first element after navbar so doesn't overlap */
 #navbarGrid + * {
-  margin-top: 82px;
+  margin-top: 15%;
 }
 
 #navbarGrid > * {
@@ -32,8 +32,12 @@ body {
   margin: 1mm;
 }
 
-#logo {
+#backBtn {
   grid-column: 2/3;
+}
+
+#logo {
+  grid-column: 3/4;
   width: 200px;
   /* margin: 0mm; */
   /* height: 115%; */
@@ -49,7 +53,7 @@ form {
   /* width: 95%; */
 
   /* center form */
-  margin: auto;
+  margin: 50px;
   place-items: center;
 }
 
