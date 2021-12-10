@@ -10,32 +10,7 @@ body {
   font-family: "Noto Serif", serif;
 }
 
-@media only screen and (min-width: 1680px) {
-  .recipe-grid {
-    grid-area: recipes;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
-  }
-}
-
-@media only screen and (min-width: 1200px) and (max-width: 1680px) {
-  .recipe-grid {
-    grid-area: recipes;
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 10px;
-  }
-}
-
-@media only screen and (min-width: 770px) and (max-width: 1200px) {
-  .recipe-grid {
-    grid-area: recipes;
-    display: grid;
-    grid-template-columns: auto;
-    padding: 10px;
-  }
-}
+  
 
 .recipe {
   display: grid;
@@ -269,41 +244,32 @@ div[hide="true"] > * {
   opacity: 0;
 }
 
-/*****************/
-/** MOBILE VIEW **/
-/*****************/
-/* @media only screen and (max-width: 768px) {
-  
-  .logoImg, .logo {
-    width: 200px;
-    height: 50px;
+@media only screen and (min-width: 1680px) {
+  .recipe-grid {
+    grid-area: recipes;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
   }
+}
 
-  .search-button {
-    padding-left: 6px;
-    padding-right: 6px;
-    margin-right: 10px;
+@media only screen and (min-width: 1200px) and (max-width: 1680px) {
+  .recipe-grid {
+    grid-area: recipes;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
   }
+}
 
+@media only screen and (max-width: 1200px) {
+  .recipe-grid {
+    grid-area: recipes;
+    display: grid;
+    grid-template-columns: auto;
+    padding: 10px;
+  }
   .search {
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 15px;
   }
-
-  .a {
-    padding-top: 8.5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-right: 10px;
-  }
-
-  .b {
-    padding-top: 8.5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-right: 10px;
-  }
-
-
-  
-} */
+}

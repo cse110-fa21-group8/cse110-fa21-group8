@@ -42,8 +42,8 @@ article[id="instructions"] > div {
 }
 
 /* gives margin to first element after navbar so doesn't overlap */
-#navbarGrid + * {
-  margin-top: 65px;
+#title {
+  margin-block-start: 65px;
 }
 
 #navbarGrid > * {
@@ -90,6 +90,7 @@ article[id="instructions"] > div {
   padding: 1mm;
   margin-bottom: 1mm;
   font-size: calc(12px + 5vw);
+
 }
 
 #metaData > * {
@@ -265,8 +266,8 @@ article[id="instructions"] > div {
   }
 
   /* gives margin to first element after navbar so doesn't overlap */
-  #navbarGrid + * {
-    margin-top: 82px;
+  #title {
+    margin-block-start: 82px;
   }
 
   #navbarGrid > * {
