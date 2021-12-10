@@ -5,7 +5,6 @@ let queryLink = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 let apiLink = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 // const apiKey = "&apiKey=c6c6e98c49db4067b8ac5b9fce7703cd";
 const apiKey = "126a45f034mshd1de42a24e5a6d2p14ccefjsnd4686ee15764";
-let resultSection = document.getElementById("result");
 let detail = document.getElementById("detail");
 let res = [];
 

@@ -32,8 +32,12 @@ body {
   margin: 1mm;
 }
 
-#logo {
+#backBtn {
   grid-column: 2/3;
+}
+
+#logo {
+  grid-column: 3/4;
   width: 200px;
   /* margin: 0mm; */
   /* height: 115%; */

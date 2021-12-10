@@ -22,3 +22,8 @@ reg.addEventListener("click", async function () {
     console.log(res);
   }
 });
+
+let backBtn = document.getElementById("backBtn");
+backBtn.addEventListener("click", function () {
+  window.location.href = "/";
+});
