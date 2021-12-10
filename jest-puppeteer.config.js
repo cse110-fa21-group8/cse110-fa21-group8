@@ -1,3 +1,4 @@
+/*
 const puppeteer = require("puppeteer");
 module.exports = async function () {
   // According to
@@ -9,12 +10,13 @@ module.exports = async function () {
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 };
+*/
 
-/*
 module.exports = {
   launch: {
     headless: false,
     slowMo: 5,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
   },
 };
-*/
+
