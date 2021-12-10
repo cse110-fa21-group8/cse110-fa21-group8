@@ -1,5 +1,5 @@
 const websiteTested =
-  "https://frosty-poincare-dc3f79.netlify.app/";
+  "https://testing.tianyuezhang1997.site/cse110-fa21-group8/merging/";
 
 const recipesDemo = require("./src/recipes.json");
 
