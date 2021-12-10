@@ -69,14 +69,14 @@ async function init() {
 
       // Create recipe element
       const recipe = document.createElement("span");
-      console.log(recipes[i].img);
+      console.log(recipes[pointer].img);
       recipe.setAttribute("class", "recipeSpan");
-      recipeElements[i].style.backgroundImage = `url(${recipes[i].img})`;
+      recipeElements[i].style.backgroundImage = `url(${recipes[pointer].img})`;
 
-      recipe.textContent = recipes[i].title;
+      recipe.textContent = recipes[pointer].title;
       recipeElements[i].setAttribute(
         "href",
-        "viewRecipe.html#" + userName + "&" + recipes[i]._id
+        "viewRecipe.html#" + userName + "&" + recipes[pointer]._id
       );
       recipeElements[i].appendChild(recipe);
 
