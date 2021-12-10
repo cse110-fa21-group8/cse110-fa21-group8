@@ -8,4 +8,4 @@ We created a CRUD app in which handles recipes. Users can create new recipes, vi
 ## JSDocs:
 [JSDocs](https://devildishes.netlify.app/jsdocs/)
 ## Workflow Instruction (Updated 11/27/2021):
-[Workflow Instruction](https://github.com/cse110-fa21-group8/cse110-fa21-group8/blob/testing/.github/workflows/workflow-instruction.md)
+[Workflow Instruction](https://github.com/cse110-fa21-group8/cse110-fa21-group8/blob/main/.github/workflows/workflow-instruction.md)
