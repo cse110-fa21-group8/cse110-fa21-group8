@@ -1,4 +1,4 @@
-const websiteTested = "https://frosty-poincare-dc3f79.netlify.app/";
+const websiteTested = "https://devildishes.netlify.app/";
 
 const recipesDemo = require("./src/recipes.json");
 
@@ -41,7 +41,7 @@ let newRecipeID = "";
 let exploredTitle = "";
 
 // Estimated milliseconds needed for one image being loaded on website
-const oneImageLoaded = 3000;
+const oneImageLoaded = 2000;
 
 // Estimated milliseconds needed for multiple images being loaded on website
 const multipleImagesLoaded = 3000;
@@ -420,6 +420,8 @@ describe("Basic user flow for Website", () => {
     await page.waitForTimeout(oneImageLoaded);
     const favBtn = await page.$("#favBtn");
     await favBtn.click();
+    // wait for image to load
+    await page.waitForTimeout(oneImageLoaded);
   });
 
   it("Click the back button on viewRecipe.html", async () => {
