@@ -154,7 +154,7 @@ app.post("/register", async function (req, res) {
     !/^[A-Za-z0-9]+$/.test(username)
   ) {
     res.send(
-      "username shuold only include letters and numbers, username shold contain more than 3 characters, password should contain more than 7 characters"
+      "username should only include letters and numbers, username should contain more than 3 characters, and password should contain more than 7 characters"
     );
     return;
   }
@@ -195,7 +195,7 @@ app.post("/addFavorite", async function (req, res) {
         }
       }
     );
-    res.send("updated favorite recipe");
+    res.send("updated the user's favorite recipe");
   }
   // if user doesn't exist
   else {
