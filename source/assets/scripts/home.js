@@ -42,7 +42,7 @@ async function init() {
 
   console.log(recipes);
 
-  setTimeout(fillGrid, 500);
+  setTimeout(fillGrid, 800);
 
   function fillGrid() {
     // Remove current recipes on display
