@@ -1,4 +1,4 @@
-const websiteTested = "https://frosty-poincare-dc3f79.netlify.app/";
+const websiteTested = "https://devildishes.netlify.app/";
 
 const recipesDemo = require("./src/recipes.json");
 
