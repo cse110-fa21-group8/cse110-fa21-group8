@@ -149,6 +149,7 @@ body {
   margin-right: 38px;
 }
 
+/*Source for creating grids: https://www.w3schools.com/css/css_grid.asp*/
 .home-grid {
   display: grid;
   grid-template-areas:
@@ -271,6 +272,7 @@ div[hide="true"] > * {
   opacity: 0;
 }
 
+/* Source for managing screen widths: https://www.w3schools.com/cssref/css3_pr_mediaquery.asp*/
 @media only screen and (min-width: 1680px) {
   .recipe-grid {
     grid-area: recipes;
