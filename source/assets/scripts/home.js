@@ -48,10 +48,11 @@ async function init() {
     // Remove current recipes on display
     for (let i = 0; i < recipeElements.length; i++) {
       if (recipeElements[i].children.length > 0) {
-        if (recipeElements[i].children[0].tagName == "IMG") {
+        if (recipeElements[i].children[0].tagName == "SPAN") {
           recipeElements[i].removeChild(recipeElements[i].children[0]);
           recipeElements[i].textContent = "";
           recipeElements[i].removeAttribute("href");
+          recipeElements[i].style.backgroundImage = "";
         }
       }
     }
@@ -67,14 +68,17 @@ async function init() {
       if (pointer >= recipes.length) break;
 
       // Create recipe element
+      const recipe = document.createElement("span");
       console.log(recipes[i].img);
-
-      recipeElements[i].style.backgroundImage = `url(${recipes[i].img})`;
-      recipeSpans[i].textContent = recipes[i].title;
+      recipe.setAttribute("class", "recipeSpan");
+      recipeElements[i].style.backgroundImage = `url(${recipes[i].img})`
+      
+      recipe.textContent = recipes[i].title;
       recipeElements[i].setAttribute(
         "href",
         "viewRecipe.html#" + userName + "&" + recipes[i]._id
       );
+      recipeElements[i].appendChild(recipe);
 
       // Update pointer
       pointer++;
