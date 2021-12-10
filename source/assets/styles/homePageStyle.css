@@ -99,7 +99,6 @@ body {
   padding-bottom: 0;
 }
 
-
 .search-button {
   grid-area: button;
   padding-left: 30px;
@@ -297,9 +296,8 @@ div[hide="true"] > * {
     grid-template-columns: auto;
     padding: 10px;
   }
-  
+
   .search {
     margin-left: 15px;
   }
-
 }
