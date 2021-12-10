@@ -9,5 +9,8 @@ We created a CRUD app in which handles recipes. Users can create new recipes, vi
 ## Website:
 [Website](https://frosty-poincare-dc3f79.netlify.app)
 
+## JSDocs:
+[JSDocs](https://frosty-poincare-dc3f79.netlify.app/JSDocs)
+
 ## Workflow Instruction (Updated 11/27/2021):
 [Workflow Instruction](https://github.com/cse110-fa21-group8/cse110-fa21-group8/blob/testing/.github/workflows/workflow-instruction.md)
