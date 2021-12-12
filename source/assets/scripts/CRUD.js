@@ -9,7 +9,7 @@ export {
   saveRecipe,
   favTag,
 };
-// add recipe
+// add a recipe
 const serverUrl = "https://devil-dishes.herokuapp.com/";
 // const serverUrl = "http://localhost:3000/";
 

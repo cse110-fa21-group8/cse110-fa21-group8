@@ -5,7 +5,7 @@ let confirmBtn = document.getElementById("confirmBtn");
 let uploadImg = document.getElementById("uploadImg");
 
 confirmBtn.addEventListener("click", async function () {
-  //Getting all elements
+  //Getting all the elements
   let recipeTitle = document.getElementById("title").textContent;
   let servings = document.getElementById("servings").value;
   let cookTime = document.getElementById("cookTime").value;
